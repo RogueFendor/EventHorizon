@@ -1,0 +1,48 @@
+{
+	"games" : [
+		{
+		    "questions" : [
+		    {
+		            "question" : "To take advantage of the earth's rotation, NASA launches most of its rockets in what direction?",
+		            "content" : [
+		                "North",
+		                "East",
+		                "South",
+		                "West"
+		            ],
+		            "correct" : 1
+		        },
+		        {
+		            "question" : "College football's Independence Bowl is played in what city?",
+		            "content" : [
+		                "Philadelphia",
+		                "Memphis",
+		                "Shreveport",
+		                "Tucson"
+		            ],
+		            "correct" : 2
+		        },
+		        {
+		            "question" : "Which of these best describes music that is played \"pianissimo\"?",
+		            "content" : [
+		                "Very soft",
+		                "Very fast",
+		                "Moderately loud",
+		                "Loud"
+		            ],
+		            "correct" : 0
+		        },
+		        {
+		            "question" : "In Greek mythology, what is the relationship between Oedipus and Antigone?",
+		            "content" : [
+		                "Husband and wife",
+		                "Mentor and student",
+		                "Father and daughter",
+		                "Mother and son"
+		            ],
+		            "correct" : 2
+		        }
+		    ]
+		}
+	]
+}

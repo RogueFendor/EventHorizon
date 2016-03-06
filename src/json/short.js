@@ -1,0 +1,1 @@
+ QString[]={"In what children's game are participants chased by someone designated","Tag","Simon Says","Charades","Hopscotch"};

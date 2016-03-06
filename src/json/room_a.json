@@ -1,0 +1,49 @@
+{
+	"games" : [
+		{
+		    "questions" : [
+             {
+		            "question" : "The name of the German news magazine \"Der Spiegel\" means what in English?",
+		            "content" : [
+		                "The Observer",
+		                "The Mirror",
+		                "The Sun",
+		                "The Times"
+		            ],
+		            "correct" : 1
+		        },
+		        {
+		            "question" : "Reacting with virtually every other element, what is the most reactive chemical element?",
+		            "content" : [
+		                "Fluorine",
+		                "Oxygen",
+		                "Phosphorus",
+		                "Sodium"
+		            ],
+		            "correct" : 0
+		        },
+		        {
+		            "question" : "What taxonomic family do human beings belong to?",
+		            "content" : [
+		                "Chordata",
+		                "Mammalia",
+		                "Primate",
+		                "Hominidae"
+		            ],
+		            "correct" : 3
+		        },
+		        {
+		            "question" : "An albino gorilla usually has what color fur?",
+		            "content" : [
+		                "Brown",
+		                "Black",
+		                "White",
+		                "Golden"
+		            ],
+		            "correct" : 2
+		        }
+		
+		    ]
+		}
+	]
+}

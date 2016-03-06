@@ -1,0 +1,37 @@
+{"Questions_Chris":
+  [
+  {"Q":"What does the code 'cout<<(0==0);' print?"},
+     [
+      {"answer":"0"},
+      {"answer":"1"},
+      {"answer":"Compiler error: Lvalue required"}
+     ],
+  {"Q":"According to the ANSI C++ standard, what does the getch() do?"},
+     [
+      {"answer":"Reads in a character"},
+      {"answer":"Checks the keyboard buffer"},
+      {"answer":"Nothing (getch() is not an ANSI C++ function)"}
+     ],
+  {"Q":"If the program completes executing successfully, what value should the function main() return?"},
+     [
+      {"answer":"0"},
+      {"answer":"1"},
+      {"answer":"void"}
+     ],
+  {"Q":"C is to C++ as 1 is to"},
+     [
+      {"answer":"What the heck?"},
+      {"answer":"2"},
+      {"answer":"10"}
+     ],
+  {"Q":"Which of the following sorts is quickest when sorting the following set: 1 2 3 5 4"},
+     [
+      {"answer":"Quick Sort"},
+      {"answer":"Bubble Sort"},
+      {"answer":"Merge Sort"}
+     ]
+  ]
+
+}
+
+

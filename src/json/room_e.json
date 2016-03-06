@@ -1,0 +1,49 @@
+{
+	"games" : [
+		{
+		    "questions" : [
+             {
+		            "question" : "A person who earns a Ph.D. is literally a certified doctor of what?",
+		            "content" : [
+		                "Photography",
+		                "Pharmacology",
+		                "Philosophy",
+		                "Psychology"
+		            ],
+		            "correct" : 2
+		        },
+		        {
+		            "question" : "British actor/comedian Rowan Atkinson plays what famous character?",
+		            "content" : [
+		                "Mr. Nut",
+		                "Mr. Bean",
+		                "Mr. Pea",
+		                "Mr. Sprout"
+		            ],
+		            "correct" : 1
+		        },
+		        {
+		            "question" : "What is the only Great Lake that lies wholly within the U.S.?",
+		            "content" : [
+		                "Lake Erie",
+		                "Lake Huron",
+		                "Lake Michigan",
+		                "Lake Superior"
+		            ],
+		            "correct" : 2
+		        },
+		        {
+		            "question" : "Roy Allen and Frank Wright founded a company that began producing what beverage in the 1920s?",
+		            "content" : [
+		                "Cocoa",
+		                "Root beer",
+		                "Coffee",
+		                "Whiskey"
+		            ],
+		            "correct" : 1
+		        }
+		
+		    ]
+		}
+	]
+}

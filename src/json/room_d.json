@@ -1,0 +1,48 @@
+{
+	"games" : [
+		{
+		    "questions" : [
+              {
+		            "question" : "When you enter a situation without a definite plan of action, you are said to be \"playing it by\" what?",
+		            "content" : [
+		                "Fingertips",
+		                "Ear",
+		                "Nose",
+		                "Mouth"
+		            ],
+		            "correct" : 1
+		        },
+		        {
+		            "question" : "A serial story in which each installment ends at a point of suspense is called a what??",
+		            "content" : [
+		                "Ledge-hanger",
+		                "Rock-hanger",
+		                "Cliff-hanger",
+		                "Clothes hanger"
+		            ],
+		            "correct" : 2
+		        },
+		        {
+		            "question" : "What part of speech is the word \"and\"?",
+		            "content" : [
+		                "Verb",
+		                "Noun",
+		                "Preposition",
+		                "Conjunction"
+		            ],
+		            "correct" : 3
+		        },
+		        {
+		            "question" : "In basic education, how many of the \"Three R's\" actually begin with the letter R?",
+		            "content" : [
+		                "0",
+		                "1",
+		                "2",
+		                "3"
+		            ],
+		            "correct" : 1
+		        }
+		    ]
+		}
+	]
+}

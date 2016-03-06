@@ -1,0 +1,33 @@
+<RCC>
+    <qresource prefix="/new/largeImg">
+        <file>img/background_1.jpg</file>
+        <file>img/background_2.jpg</file>
+        <file>img/wellcome.jpg</file>
+        <file>img/SSP.png</file>
+        <file>img/control.jpg.svg</file>
+        <file>img/control.jpg</file>
+        <file>img/char9.jpg</file>
+        <file>img/char8.jpg</file>
+        <file>img/char7.jpeg</file>
+        <file>img/char6.jpg</file>
+        <file>img/char5.jpg</file>
+        <file>img/char4.jpg</file>
+        <file>img/char3.jpg</file>
+        <file>img/char2.jpg</file>
+        <file>img/char1.jpg</file>
+        <file>img/AI.jpg</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>img/control.jpg</file>
+        <file>img/char9.jpg</file>
+        <file>img/char8.jpg</file>
+        <file>img/char7.jpeg</file>
+        <file>img/char6.jpg</file>
+        <file>img/char5.jpg</file>
+        <file>img/char4.jpg</file>
+        <file>img/char3.jpg</file>
+        <file>img/char2.jpg</file>
+        <file>img/char1.jpg</file>
+        <file>img/AI.jpg</file>
+    </qresource>
+</RCC>
