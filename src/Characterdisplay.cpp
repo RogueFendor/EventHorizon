@@ -17,6 +17,7 @@ void CharacterDisplay::setGreeting(QString greeting){
 
 ui->lable_greeting->setText(greeting);
 ui->lable_greeting->adjustSize();
+//Quick Test does ignore work?
 
 }
 void CharacterDisplay::setType(int id){
