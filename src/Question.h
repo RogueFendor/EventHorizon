@@ -2,7 +2,10 @@
 #define QUESTION_H
 #include<Mainwindow.h>
 
-class Question: public MainWindow
+namespace runQ {
+class Question;
+}
+class Question
 {
 public:
     Question();
