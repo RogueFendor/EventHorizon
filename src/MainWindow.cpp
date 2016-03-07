@@ -52,7 +52,12 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::setNewChallenger(){
-
+    QString n =game->challengerInfo();
+    currentString =n;
+    currentChallenger->setGreeting(n);
+    currentChallenger->setType(game->getChallengerID());
+    currentChallenger->setHidden(false);
+    qApp->processEvents();
 
 }
 void MainWindow::on_buttonChall_clicked()

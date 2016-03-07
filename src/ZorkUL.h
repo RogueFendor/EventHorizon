@@ -21,12 +21,13 @@ private:
 	void createRooms();
     void createMainCharacter();
     void createChallenger(int id);
-    int getChallengerID();
+
     void createItems();
     int generateRandomNumber();
 
 public:
 	ZorkUL();
+    int getChallengerID();
     QString playerInfo();
     QString roomInfo();
     QString challengerInfo();

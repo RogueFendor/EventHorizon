@@ -8,7 +8,7 @@
 #include<sstream>
 #include "ZorkUL.h"
 #include <QApplication>
-#include<QtDebug>
+#include<QDebug>
 #include<QMessageBox>
 
 using namespace std;
@@ -65,8 +65,9 @@ void ZorkUL::createRooms()
     g = new Room("g");
     h = new Room("h");
     i = new Room("i");
-    ai = new Room("AI"); //was room j
+    ai = new Room("AI");//was room j
     start = new Room("START"); //was room k
+
     bridge = new Room("BRIDGE");
     chr_a = new Room("CHR-A");
     chr_b = new Room("CHR-B");
@@ -162,6 +163,7 @@ QString ZorkUL::itemDetails(int id){
     return itemDetail;
 }
 
+// Generic string to QString
 QString ZorkUL::genericStringsToQString(string str){
     return QString::QString::fromStdString(str);
 }
@@ -223,6 +225,7 @@ int ZorkUL::generateRandomNumber(){
 
 void ZorkUL::go(string direction){
 	Room* nextRoom = currentRoom->nextRoom(direction);
+
     if (nextRoom == NULL){
        //we'll se what to do here
     }
@@ -230,17 +233,17 @@ void ZorkUL::go(string direction){
 	{
         //~currentRoom();
 		currentRoom = nextRoom;
-        roomInfo();
         // check challenges here if not finished previously
         //do nothing here otherwise
-        if(currentChallenger->getChallengesComplete() < currentChallenger->getNumberOfChallenges()){
+        if(currentChallenger == NULL){
           // do nothing keep going here
         }
         else
         {
            // ~currentChallenger();
+            qDebug()<<"Test befor create challenger here\n";
             createChallenger(getChallengerID());
-            challengerInfo();
+
         }
 	}
 }
@@ -274,7 +277,7 @@ int ZorkUL::getChallengerID(){
     else if(tmp.compare("i")==0){
        return 3;
     }
-    else if(tmp.compare("j")==0){
+    else if(tmp.compare("AI")==0){
        return 2;
     }
     else if(tmp.compare("z")==0){
