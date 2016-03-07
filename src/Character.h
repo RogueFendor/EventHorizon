@@ -33,6 +33,7 @@ public:
     Character();
     ~Character();
     Character(int id);
+
     int getNumberOfChallenges();
     void addItems(Item *item);
     void setLive(int live);
@@ -40,8 +41,8 @@ public:
     void setCharacter(int id);
     void comeToLive();
 
-
     int getChallenge();
+
     void setChallengesComplete(int);
     int getChallengesComplete();
 

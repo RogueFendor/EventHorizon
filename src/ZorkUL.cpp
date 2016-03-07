@@ -228,6 +228,7 @@ void ZorkUL::go(string direction){
 
     if (nextRoom == NULL){
        //we'll se what to do here
+
     }
 	else
 	{
@@ -236,6 +237,7 @@ void ZorkUL::go(string direction){
         // check challenges here if not finished previously
         //do nothing here otherwise
         if(currentChallenger == NULL){
+
           // do nothing keep going here
         }
         else

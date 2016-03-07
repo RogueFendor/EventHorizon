@@ -14,11 +14,14 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 
     ui->setupUi(this);
-    QPixmap bkgnd("../CS076_GUI/img/background_1.jpg");
-        bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+
+    QPixmap bkgnd(":/new/largeImg/img/background_1.jpg");
+        bkgnd = bkgnd.scaled(this->size(),Qt::IgnoreAspectRatio);
         QPalette palette;
         palette.setBrush(QPalette::Background, bkgnd);
         this->setPalette(palette);
+
+    // ui->centralWidget->setStyleSheet("border-image: url(:/new/largeImg/img/background_1.jpg)");
      game = new ZorkUL;     
      PlInfo();
      wellcome();

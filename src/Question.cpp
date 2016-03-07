@@ -48,7 +48,7 @@ void Question::setUp(int id){
           currentQuestion->push_back(h);
         }break;
         case 5:{
-          QString g= "Poor people have it\nRich People need it\nif you eat it you die";
+          QString g= "Go to Room LB and Bring me this:\n 'Poor people have it\nRich People need it\nif you eat it you die'";
           currentQuestion->push_back(g);
         }break;
         case 6:{
