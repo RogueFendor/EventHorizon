@@ -51,42 +51,68 @@ Method to create all rooms
 and adding items into them
 */
 
-void ZorkUL::createRooms()  {
-    Room *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
+void ZorkUL::createRooms()
+{
+    Room *a, *b, *c, *d, *e, *f, *g, *h, *i, *ai, *start,
+         *bridge, *chr_a, *chr_b, *dcr_a, *dcr_b, *e_room_a, *e_room_b;
 
-	a = new Room("a");
+    a = new Room("a");
+    b = new Room("b");
+    c = new Room("c");
+    d = new Room("d");
+    e = new Room("e");
+    f = new Room("f");
+    g = new Room("g");
+    h = new Room("h");
+    i = new Room("i");
+    ai = new Room("AI"); //was room j
+    start = new Room("START"); //was room k
+    bridge = new Room("BRIDGE");
+    chr_a = new Room("CHR-A");
+    chr_b = new Room("CHR-B");
+    dcr_a = new Room("DCR-A");
+    dcr_b = new Room("DCR-B");
+    e_room_a = new Room("E-ROOM-A");
+    e_room_b = new Room("E-ROOM-B");
+    /*la = new Room("");
+    lb = new Room("");
+    lc = new Room("");
+    ld = new Room("");
+    le = new Room("");
+    lf = new Room("");*/
 
     a->addItem(new Item("x", 1, "Test"));
     a->addItem(new Item("y", 2, "Test"));
+    start->addItem(new Item("yy", 4, 44,0)); //was k->addItem
 
-    b = new Room("b");
-
-    //b->addItem(new Item("xx", 3, 33,0));
-
-
-    c = new Room("c");
-	d = new Room("d");
-	e = new Room("e");
-	f = new Room("f");
-	g = new Room("g");
-	h = new Room("h");
-    i = new Room("i");
-    j = new Room("j");
-    k = new Room("k");
-    k->addItem(new Item("yy", 4, 44,0));
 
 //             (N, E, S, W)
-	a->setExits(f, b, d, c);
-	b->setExits(NULL, NULL, NULL, a);
-	c->setExits(NULL, a, NULL, NULL);
-    d->setExits(a, e, j, i);
+  a->setExits(f, b, d, c);
+  b->setExits(NULL, NULL, NULL, a);
+  c->setExits(NULL, a, NULL, NULL);
+    d->setExits(a, e, ai, i);
     e->setExits(NULL, NULL, NULL, d);
-	f->setExits(NULL, g, a, h);
-	g->setExits(NULL, NULL, NULL, f);
-	h->setExits(NULL, f, NULL, NULL);
+  f->setExits(NULL, g, a, h);
+  g->setExits(NULL, NULL, NULL, f);
+  h->setExits(NULL, f, NULL, NULL);
     i->setExits(NULL, d, NULL, NULL);
-    j->setExits(d,NULL,NULL,NULL);
-    k->setExits(j,NULL,NULL,NULL);
+    ai->setExits(d, NULL, start, NULL);
+    start->setExits(ai, chr_b, NULL, chr_a);
+    bridge->setExits(NULL, NULL, f, NULL);
+    chr_a->setExits(NULL, start, dcr_a, NULL);
+    chr_b->setExits(NULL, NULL, dcr_b, start);
+    dcr_a->setExits(chr_a, NULL, NULL, e_room_a);
+    dcr_b->setExits(chr_b, e_room_b, NULL, NULL);
+    e_room_a->setExits(NULL, dcr_a, NULL, NULL);
+    e_room_b->setExits(NULL, NULL, NULL, dcr_b);
+    /*la->setExits(NULL, NULL, NULL, NULL);
+    lb->setExits(NULL, NULL, NULL, NULL);
+    lc->setExits(NULL, NULL, NULL, NULL);
+    ld->setExits(NULL, NULL, NULL, NULL);
+    le->setExits(NULL, NULL, NULL, NULL);
+    lf->setExits(NULL, NULL, NULL, NULL);*/
+
+
     tmpMap[1]= a;
     tmpMap[2]= b;
     tmpMap[3]= c;
@@ -96,9 +122,13 @@ void ZorkUL::createRooms()  {
     tmpMap[7]= g;
     tmpMap[8]= h;
     tmpMap[9]= i;
-    tmpMap[10]=j;
+    tmpMap[10]= ai;
+    tmpMap[11]= start;
+    tmpMap[12]= bridge;
+    tmpMap[13]= chr_a;
+    tmpMap[14]= chr_b;
 
-    currentRoom = k;
+    currentRoom = start; // was k
 }
 
 /*
