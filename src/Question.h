@@ -1,14 +1,21 @@
-#ifndef QUESTION_H
-#define QUESTION_H
-#include<Mainwindow.h>
+#ifndef QUESTION_H_
+#define QUESTION_H_
+#include<QString>
+#include <vector>
 
-namespace runQ {
-class Question;
-}
-class Question
+
+using namespace std;
+class Question //: public MainWindow
 {
+private:
+    vector<QString> *currentQuestion;
+    bool *next;
+    void setNext();
+    bool getNext();
+    void setUp(int id);
+    void clearQuestions();
 public:
     Question();
+    QString getQuestion(int i);
 };
-
 #endif // QUESTION_H

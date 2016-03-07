@@ -135,67 +135,7 @@ QString ZorkUL::itemDetails(int id){
 QString ZorkUL::genericStringsToQString(string str){
     return QString::QString::fromStdString(str);
 }
-/*
-QString ZorkUL::playChallenge(int challengeNum){
 
-  switch(currentChallenger->getChallenge()){
-
-    case 2:{
-
-       QString a="In what children's game are participants chased by someone designated","Tag","Simon Says","Charades","Hopscotch","0";
-       QString b="On a radio, stations are changed by using what control?","Tuning","Volume","Bass","Treble","0";
-       QString c="Which material is most dense?","Silver","Styrofoam","Butter","Gold","3";
-       QString d="Which state in the United States is largest by area?","Alaska","California","Texas","Hawaii","0";
-    }
-    break;
-    case 3:{
-
-      QString a="Which two countries currently account for more than a third of Earth's population?","China and Russia","India and China", "India and Pakistan","China and Brazil","1";
-      QString b="Go-Gurt, yogurt in a tube, is manufactured by what brand?","Dannon", "Breyer's", "Yoplait","TCBY","2";
-      QString c="Acadia National Park is located in what U.S. state?", "Maine", "Michigan","Arkansas","Louisiana";
-      QString d="The National Hockey League's trophy for league's leading goal scorer is named for what player?","Wayne Gretzky","Maurice Richard","Gordie Howe","Mario Lemieux","1";
-
-    }
-    break;
-    case 4:{
-      QString h= "Take of my skin and i wont cry but you will";
-    }break;
-    case 5:{
-      QString g= "Poor people have it\nRich People need it\nif you eat it you die";
-    }break;
-    case 6:{
-       QString f= "I am tall when I am young but short when I am old";
-    }break;
-    case 7:{
-      QString e= "I have a a neck but my head is nor there";
-    }break;
-    case 8:{
-      QString d="a.) What Room can no one Enter?","b.) If you look at My face you will never see the number 13";
-    }break;
-    case 9:{
-        QString c="A snail you may ?";
-    }break;
-    case 10:{
-        QString b= "What is Sushi wrapped in?";
-    }break;
-    case 11:{
-      QString g="You unlocked room a  now decrypt the the message and\nyou will have the password to reset the teleporter";
-    }break;
-    case 12:{
-
-      QString a="What does the code 'cout<<(0==0);' print?","0", "1", "Compiler error: Lvalue required";
-      QString b="According to the ANSI C++ standard, what does the getch() do?","Reads in a character","Checks the keyboard buffer","Nothing (getch() is not an ANSI C++ function)";
-      QString c="If the program completes executing successfully, what value should the function main() return?", "0","1", "void";
-      QString d="C is to C++ as 1 is to","What the heck?","2", "10";
-      QString e="Which of the following sorts is quickest when sorting the following set: 1 2 3 5 4","Quick Sort","Bubble Sort","Merge Sort";
-
-
-    }
-    break;
-  }
-
-}
-*/
 void ZorkUL::teleport(){
     bool runGen =true;
     int number;
@@ -277,26 +217,37 @@ void ZorkUL::go(string direction){
 
 int ZorkUL::getChallengerID(){
     string tmp = currentRoom->shortDescription();
-    if(tmp.compare("a")==0)
+    if(tmp.compare("a")==0){
        return 11;
-    else if(tmp.compare("b")==0)
+    }
+    else if(tmp.compare("b")==0){
        return 10;
-    else if(tmp.compare("c")==0)
+    }
+    else if(tmp.compare("c")==0){
        return 9;
-    else if(tmp.compare("d")==0)
+    }
+    else if(tmp.compare("d")==0){
        return 8;
-    else if(tmp.compare("e")==0)
+    }
+    else if(tmp.compare("e")==0){
        return 7;
-    else if(tmp.compare("f")==0)
+    }
+    else if(tmp.compare("f")==0){
        return 6;
-    else if(tmp.compare("g")==0)
+    }
+    else if(tmp.compare("g")==0){
        return 5;
-    else if(tmp.compare("h")==0)
+    }
+    else if(tmp.compare("h")==0){
        return 4;
-    else if(tmp.compare("i")==0)
+    }
+    else if(tmp.compare("i")==0){
        return 3;
-    else if(tmp.compare("j")==0)
+    }
+    else if(tmp.compare("j")==0){
        return 2;
-    else if(tmp.compare("z")==0)
+    }
+    else if(tmp.compare("z")==0){
        return 12;
+    }
 }

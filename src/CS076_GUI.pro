@@ -20,9 +20,9 @@ SOURCES +=\
     ZorkUL.cpp \
     Characterdisplay.cpp \
     Control.cpp \
-    Mainwindow.cpp \
     Map.cpp \
-    Question.cpp
+    Question.cpp \
+    MainWindow.cpp
 
 HEADERS  += \
     Room.h \
@@ -31,9 +31,9 @@ HEADERS  += \
     ZorkUL.h \
     Characterdisplay.h \
     Control.h \
-    Mainwindow.h \
     Map.h \
-    Question.h
+    Question.h \
+    MainWindow.h
 
 FORMS    += mainwindow.ui \
     map.ui \
