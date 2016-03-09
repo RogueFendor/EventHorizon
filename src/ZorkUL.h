@@ -15,7 +15,7 @@ class ZorkUL {
 private:
 	Room *currentRoom;
     Character* currentPlayer;
-    Character* currentChallenger;
+    Character* currentChallenger =NULL;
     Question* currentQuestion;
     QString *str;
 	void createRooms();
@@ -27,7 +27,14 @@ private:
 
 public:
 	ZorkUL();
-    int getChallengerID();
+    int createChallengerID();
+    int idRequest();
+
+
+    int returnNumberOfChallenges();
+    QString returnRoom();
+    QString returnLive();
+    // QString return
     QString playerInfo();
     QString roomInfo();
     QString challengerInfo();

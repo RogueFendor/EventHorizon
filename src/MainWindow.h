@@ -17,12 +17,13 @@ public:
     void wellcome();
     void PlInfo();
     void ChalInfo();
+    void setTextAreas();
 
     ~MainWindow();
     ZorkUL *game;
     CharacterDisplay *currentPlayer;
     CharacterDisplay *currentChallenger;
-
+    Question *question;
     QPixmap *currentPixMap;
     QPalette *currentPallete;
     QString currentString;

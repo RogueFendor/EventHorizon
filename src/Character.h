@@ -17,13 +17,10 @@ private:
      string itemChecker;
      int challengeDescriptor;
      void setChallenge(int num);
-
+     int challengerID;
      int lives;
      int numOfChallenges;
-     int completedChallenges;
-     bool challengeCompleted;
      void setCharacter(string name);
-     void setNumOfChallenges(int number);
      void setGender(string gender);
      void setItemCheck(string item);
 
@@ -34,17 +31,18 @@ public:
     ~Character();
     Character(int id);
 
-    int getNumberOfChallenges();
+    int getNumOfChallenges();
+    void setNumOfChallenges(int challenges);
     void addItems(Item *item);
     void setLive(int live);
     int getLive();
+
+    void setChallengerID(int id);
+    int getChallengerID();
+
     void setCharacter(int id);
-    void comeToLive();
 
     int getChallenge();
-
-    void setChallengesComplete(int);
-    int getChallengesComplete();
 
     string getItemCheck();
     string shortDescription();

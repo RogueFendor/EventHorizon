@@ -92,12 +92,12 @@ string Item::getLongDescription()
 {
 
     stringstream item;
-           item << "\nItem type: " << getShortDescription();
-           item << "\nIs weapon: " << getWeaponCheck();
-           item << "\nIs Readable: " << isReadableInformation();
-           item << "\nIs Encrypted: " << isEncryptedInformation();
-           item << "\nWeight: "<< getWeight();
-           item << "\nValue: "<<  getValue()<<"\n";
+           item << "Item type:" << getShortDescription();
+           item << "<br/>Is weapon: " << getWeaponCheck();
+           item << "<br/>Is Readable: " << isReadableInformation();
+           item << "<br/>Is Encrypted: " << isEncryptedInformation();
+           item << "<br/>Weight: "<< getWeight();
+           item << "<br/>Value: "<<  getValue();
            return item.str();
 }
 void Item::setInformation(string info ){

@@ -14,6 +14,13 @@ Character::Character(int id){
 Character::Character(){
 
 }
+
+void Character::setChallengerID(int id){
+          challengerID = id;
+}
+int Character::getChallengerID(){
+    return challengerID;
+}
 Character::~Character(void){
 }
 void Character::setCharacter(int id){
@@ -28,7 +35,7 @@ void Character::setCharacter(int id){
         setCharacter("Roger Doger");
         setGender("Male");
         setLive(5);
-        setChallengesComplete(0);
+        setNumOfChallenges(0);
         //addItems(new Item(info, 1, "INFORMATION"));
         }
         break;
@@ -104,7 +111,7 @@ void Character::setCharacter(int id){
            setChallenge(10);
            setItemCheck("Edible Seaweed");
         break;
-        // create Character in Room a
+        // create Character in Room acompare
         case 11:
            setCharacter("Galf");
            setGender("Male");
@@ -136,12 +143,12 @@ string Character::longDescription(){
   character << "<font color='green'>Role: Captain</font><br/>";
   character << "<font color='green'>Gender: "<< getGender()<<"</font><br/>" ;
   character << "<font color='green'>Lives left: "<< getLive()<<"</font><br/>";
-  character << "<font color='green'>Challenges completed: "<<getChallengesComplete()<<"</font><br/>" ;
+  character << "<font color='green'>Challenges completed: "<<getNumOfChallenges()<<"</font><br/>" ;
   }
   else{
-      character << "<h4><font color='blue'>Role: Challenger</font></h4>";
-      character << "<h4><font color='green'>Challenges:</font></h4>" << getNumberOfChallenges();
-      character << "<h4><font color='red'>Click on Challenges to see list os Challenges!</font></h4>";
+      character << "<font color='green'>Role: Challenger</font><br/>";
+      character << "<font color='green'>Challenges:"<< getNumOfChallenges()<<"</font>";
+      character << "<br/><font color='red'><b>Click on Challenges<br/>for list of Challenges</b></font>";
   }
   return character.str();
 }
@@ -160,19 +167,12 @@ void Character::setLive(int live){
 int Character::getLive(){
     return this->lives;
 }
-int Character::getChallengesComplete(){
-   return completedChallenges;
+
+void Character::setNumOfChallenges(int challenges){
+    numOfChallenges = challenges;
 }
 
-void Character::setChallengesComplete(int challengesComplete){
-    this->completedChallenges = challengesComplete;
-}
-
-void Character::setNumOfChallenges(int num){
-    numOfChallenges = num;
-}
-
-int Character::getNumberOfChallenges(){
+int Character::getNumOfChallenges(){
     return numOfChallenges;
 }
 

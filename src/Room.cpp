@@ -29,17 +29,18 @@ string Room::shortDescription() {
 // return the lon decription
 string Room::longDescription() {
 
-    return "room = " + description + ".\n" + displayItem() +exitString();
+
+    return  "<font color='red'>Room: "+ description +"<br/>" + displayItem() + exitString()+"</font>";
 }
 
 /*
 this Method returns the available exits correponding to the current room
 */
 string Room::exitString() {
-	string returnString = "\nexits =";
+    string returnString = "<br><b>exits:</b><br/>";
     for (map<string, Room*>::iterator i = exits.begin(); i != exits.end(); i++)
         // Loop through map
-        returnString += "  " + i->first;	// access the "first" element of the pair (direction as a string)
+        returnString += i->first +"<br/>";	// access the "first" element of the pair (direction as a string)
     return returnString;
 }
 
@@ -76,7 +77,7 @@ void Room::addItem(Item *inItem) {
 */
 
 string Room::getItemDetails(int id){
-     string tempString = "item Details:\n\n ";
+     string tempString = "<br/><b>item Details:</b><br/>";
         tempString += tempString + itemsInRoom[id -1].getLongDescription();
         return tempString;
 
@@ -88,15 +89,15 @@ string Room::getItemDetails(int id){
 */
 
 string Room::displayItem() {
-    string tempString = "Available Items:\nItem name = ";
+    string tempString = "<b>Available Items:<b><br/>Item name: ";
     int sizeItems = (itemsInRoom.size());
     if (itemsInRoom.size() < 1) {
-        tempString = "no items in room";
+        tempString = "<b>No items in room!<b>";
         }
     else if (itemsInRoom.size() > 0) {
        int x = 0;
         for (int n = sizeItems; n > 0; n--) {
-           tempString = tempString + itemsInRoom[x].getShortDescription()+exitString();
+           tempString +="<br/>"+ tempString + itemsInRoom[x].getShortDescription();
             x++;
             }
         }

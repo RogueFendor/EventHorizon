@@ -44,6 +44,7 @@ void ZorkUL::createMainCharacter(){
 void ZorkUL::createChallenger( int id){
 
     currentChallenger =new Character(id);
+    currentChallenger->setChallengerID(id);
 
 }
 /*
@@ -137,6 +138,7 @@ void ZorkUL::createRooms()
  */
 // Wellcome :-)
 
+
 QString ZorkUL::printWelcome() {
      QString info =QString("<font color='red'><b>Wellcome to</b></font></br><font color='blue'><h3>EventHorizon</h3>");
      //Wellcome to EventHorizon\nCaptain Rogers We are happy to see you!";
@@ -167,7 +169,15 @@ QString ZorkUL::itemDetails(int id){
 QString ZorkUL::genericStringsToQString(string str){
     return QString::QString::fromStdString(str);
 }
+int ZorkUL::returnNumberOfChallenges(){
+     return currentChallenger->getNumOfChallenges();
+}
+QString ZorkUL:: returnRoom(){
+     return genericStringsToQString(currentRoom->longDescription());
+}
+QString ZorkUL:: returnLive(){
 
+}
 void ZorkUL::teleport(){
     bool runGen =true;
     int number;
@@ -191,17 +201,16 @@ void ZorkUL::teleport(){
                 // chech here for challenge status of main character
                 // check challenges here if not finished previously
                 //do nothing here otherwise
-                if(currentChallenger->getChallengesComplete()>0){
+                if(currentChallenger->getNumOfChallenges()>0){
                   roomInfo();
                 }
                 else
                 {
               //      ~currentChallenger();
-                    createChallenger(getChallengerID());
+                    createChallenger(createChallengerID());
                     roomInfo();
                     challengerInfo();
                 }
-
             }
             runGen = false;
           }
@@ -217,18 +226,13 @@ int ZorkUL::generateRandomNumber(){
     int randomNumber;
     srand(time(0));
     randomNumber=(rand() % max) +1;
-
     return randomNumber;
-
 }
-
-
 void ZorkUL::go(string direction){
 	Room* nextRoom = currentRoom->nextRoom(direction);
-
     if (nextRoom == NULL){
-       //we'll se what to do here
-
+       // we see later what to do here
+       // print somethin nice maybe?
     }
 	else
 	{
@@ -236,21 +240,30 @@ void ZorkUL::go(string direction){
 		currentRoom = nextRoom;
         // check challenges here if not finished previously
         //do nothing here otherwise
-        if(currentChallenger == NULL){
+        //qDebug()<<currentChallenger->getNumOfChallenges();
 
+        if(currentChallenger==NULL){
           // do nothing keep going here
+          createChallenger(createChallengerID());
         }
         else
         {
-           // ~currentChallenger();
-            qDebug()<<"Test befor create challenger here\n";
-            createChallenger(getChallengerID());
-
+            if(currentChallenger->getNumOfChallenges()>0){
+               qDebug()<<"Test 2";
+           }
+            else{
+                // ~currentChallenger();
+                 createChallenger(createChallengerID());
+            }
         }
 	}
 }
+int ZorkUL::idRequest(){
+    return currentChallenger->getChallengerID();
+}
 
-int ZorkUL::getChallengerID(){
+int ZorkUL::createChallengerID(){
+
     string tmp = currentRoom->shortDescription();
     if(tmp.compare("a")==0){
        return 11;
@@ -285,4 +298,4 @@ int ZorkUL::getChallengerID(){
     else if(tmp.compare("z")==0){
        return 12;
     }
-}
+ }

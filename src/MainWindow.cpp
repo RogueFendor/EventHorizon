@@ -58,22 +58,32 @@ void MainWindow::setNewChallenger(){
     QString n =game->challengerInfo();
     currentString =n;
     currentChallenger->setGreeting(n);
-    currentChallenger->setType(game->getChallengerID());
+    currentChallenger->setType(game->idRequest());
     currentChallenger->setHidden(false);
     qApp->processEvents();
 
 }
 void MainWindow::on_buttonChall_clicked()
 {
-
+    /*
+    if(){
+      question = new Question;
+      question->setUp(game->idRequest());
+    }
+    */
 }
 
 void MainWindow::on_buttonNorth_clicked()
 {
     game->go("north");
     setNewChallenger();
-}
+    setTextAreas();
 
+}
+void MainWindow::setTextAreas(){
+    ui->textArea1->setText(game->returnRoom());
+    qApp->processEvents();
+}
 void MainWindow::on_buttonEast_clicked()
 {
     game->go("east");
