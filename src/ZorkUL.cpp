@@ -1,15 +1,15 @@
 #include <iostream>
 #include<ctime>
 #include<cstdlib>
-#include<map>
-#include"Character.h"
+#include <map>
+#include "Character.h"
 
 // nice little lib for string streaming
-#include<sstream>
+#include <sstream>
 #include "ZorkUL.h"
 #include <QApplication>
-#include<QDebug>
-#include<QMessageBox>
+#include <QDebug>
+#include <QMessageBox>
 
 using namespace std;
 // Our Constructor
@@ -55,7 +55,8 @@ and adding items into them
 void ZorkUL::createRooms()
 {
     Room *a, *b, *c, *d, *e, *f, *g, *h, *i, *ai, *start,
-         *bridge, *chr_a, *chr_b, *dcr_a, *dcr_b, *e_room_a, *e_room_b;
+         *bridge, *chr_a, *chr_b, *dcr_a, *dcr_b, *e_room_a, *e_room_b,
+         *la, *lb, *lc, *ld, *le, *lf;
 
     a = new Room("a");
     b = new Room("b");
@@ -76,12 +77,12 @@ void ZorkUL::createRooms()
     dcr_b = new Room("DCR-B");
     e_room_a = new Room("E-ROOM-A");
     e_room_b = new Room("E-ROOM-B");
-    /*la = new Room("");
-    lb = new Room("");
-    lc = new Room("");
-    ld = new Room("");
-    le = new Room("");
-    lf = new Room("");*/
+    la = new Room("la");
+    lb = new Room("lb");
+    lc = new Room("lc");
+    ld = new Room("ld");
+    le = new Room("le");
+    lf = new Room("lf");
 
     a->addItem(new Item("x", 1, "Test"));
     a->addItem(new Item("y", 2, "Test"));
@@ -89,16 +90,16 @@ void ZorkUL::createRooms()
     start->addItem(new Item("yy", 4, 44,0)); //was k->addItem
 
 
-//             (N, E, S, W)
-  a->setExits(f, b, d, c);
-  b->setExits(NULL, NULL, NULL, a);
-  c->setExits(NULL, a, NULL, NULL);
+    //             (N, E, S, W)
+    a->setExits(f, b, d, c);
+    b->setExits(g, NULL, e, a);
+    c->setExits(h, a, i, NULL);
     d->setExits(a, e, ai, i);
-    e->setExits(NULL, NULL, NULL, d);
-  f->setExits(NULL, g, a, h);
-  g->setExits(NULL, NULL, NULL, f);
-  h->setExits(NULL, f, NULL, NULL);
-    i->setExits(NULL, d, NULL, NULL);
+    e->setExits(b, NULL, NULL, d);
+    f->setExits(NULL, g, a, h);
+    g->setExits(NULL, NULL, b, f);
+    h->setExits(NULL, f, c, NULL);
+    i->setExits(c, d, NULL, NULL);
     ai->setExits(d, NULL, start, NULL);
 
     start->setExits(ai, chr_b, NULL, chr_a);
@@ -109,6 +110,7 @@ void ZorkUL::createRooms()
     dcr_b->setExits(chr_b, e_room_b, NULL, NULL);
     e_room_a->setExits(NULL, dcr_a, NULL, NULL);
     e_room_b->setExits(NULL, NULL, NULL, dcr_b);
+<<<<<<< HEAD
 
     /*la->setExits(NULL, NULL, NULL, NULL);
     lb->setExits(NULL, NULL, NULL, NULL);
@@ -116,6 +118,14 @@ void ZorkUL::createRooms()
     ld->setExits(NULL, NULL, NULL, NULL);
     le->setExits(NULL, NULL, NULL, NULL);
     lf->setExits(NULL, NULL, NULL, NULL);*/
+=======
+    la->setExits(lb, ld, NULL, NULL);
+    lb->setExits(lc, le, la, NULL);
+    lc->setExits(start, lf, lb, NULL);
+    ld->setExits(le, NULL, NULL, la);
+    le->setExits(lf, NULL, lb, ld);
+    lf->setExits(NULL, NULL, le, lc);
+>>>>>>> 4ecb5c7727afce6bb6d48cef216e5d89a782bdda
 
 
     tmpMap[1]= a;
@@ -132,6 +142,11 @@ void ZorkUL::createRooms()
     tmpMap[12]= bridge;
     tmpMap[13]= chr_a;
     tmpMap[14]= chr_b;
+    tmpMap[15]= dcr_a;
+    tmpMap[16]= dcr_b;
+    tmpMap[17]= e_room_a;
+    tmpMap[18]= e_room_b;
+    //is it neccessary to add rooms la to lf here alos?
 
     currentRoom = start; // was k
 }
@@ -310,7 +325,7 @@ int ZorkUL::createChallengerID(){
     else if(tmp.compare("AI")==0){
        return 2;
     }
-    else if(tmp.compare("z")==0){
+    else if(tmp.compare("BRIDGE")==0){
        return 12;
     }
  }
