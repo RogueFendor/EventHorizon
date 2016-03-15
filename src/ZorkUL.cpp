@@ -256,17 +256,19 @@ void ZorkUL::go(string direction){
 
         if(currentChallenger==NULL){
           // do nothing keep going here
-          createChallenger(createChallengerID());
+            createChallenger(createChallengerID());
+            qDebug()<<createChallengerID();
         }
         else
         {
+             qDebug()<<createChallengerID();
             if(currentChallenger->getNumOfChallenges()>0){
                bool n = false;
                setGameStat(n);
            }
             else{
                 // ~currentChallenger();
-                bool n = true;
+                 bool n = true;
                  setGameStat(n);
                  createChallenger(createChallengerID());
             }
@@ -278,7 +280,6 @@ int ZorkUL::idRequest(){
 }
 
 int ZorkUL::createChallengerID(){
-
     string tmp = currentRoom->shortDescription();
     if(tmp.compare("a")==0){
        return 11;
@@ -312,5 +313,8 @@ int ZorkUL::createChallengerID(){
     }
     else if(tmp.compare("z")==0){
        return 12;
+    }
+    else{
+        return 42;
     }
  }

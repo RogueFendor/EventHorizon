@@ -60,7 +60,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::setNewChallenger(){
     qDebug()<<game->getGameStat();
-    if(game->getGameStat()==true){
+    if(game->getGameStat()==true ){
         qDebug()<<game->getGameStat();
         QString n =game->challengerInfo();
         currentString =n;
@@ -76,7 +76,6 @@ void MainWindow::setNewChallenger(){
 }
 void MainWindow::on_buttonChall_clicked()
 {
-
 
    qDebug()<<"test buton is disabled";
       question = new Question;
@@ -120,7 +119,7 @@ void MainWindow::renderQuestion(){
 
       b->setText(n.at(i));
       b->setFont(font);
-      connect(b,SIGNAL(clicked(bool,i)),this,SLOT(verifyAnswer(bool, i)));
+      connect(b,SIGNAL(clicked(bool)),this,SLOT(verifyAnswer(bool)));
 
       widgetLayOut->addWidget(b,i,0);
       b->adjustSize();
@@ -131,7 +130,9 @@ void MainWindow::renderQuestion(){
 void MainWindow::on_buttonNorth_clicked()
 {
     game->go("north");
-    setNewChallenger();
+     if(game->createChallengerID()<40){
+       setNewChallenger();
+     }
     setTextAreas();
 
 }
@@ -142,21 +143,27 @@ void MainWindow::setTextAreas(){
 void MainWindow::on_buttonEast_clicked()
 {
     game->go("east");
-    setNewChallenger();
+    if(game->createChallengerID()<40){
+      setNewChallenger();
+    }
     setTextAreas();
 }
 
 void MainWindow::on_buttonSouth_clicked()
 {
     game->go("south");
-    setNewChallenger();
+     if(game->createChallengerID()<40){
+        setNewChallenger();
+     }
     setTextAreas();
 }
 
 void MainWindow::on_buttonWest_clicked()
 {
     game->go("west");
-    setNewChallenger();
+     if(game->createChallengerID()<40){
+       setNewChallenger();
+     }
     setTextAreas();
 }
 
@@ -166,7 +173,7 @@ void MainWindow::on_showNewCharacter_clicked()
 }
 
 
-void  MainWindow::verifyAnswer(bool, int i){
+void  MainWindow::verifyAnswer(bool){
 
     qDebug()<<"Test this:";
 }
