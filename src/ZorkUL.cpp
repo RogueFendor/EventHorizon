@@ -69,7 +69,6 @@ void ZorkUL::createRooms()
     i = new Room("i");
     ai = new Room("AI");//was room j
     start = new Room("START"); //was room k
-
     bridge = new Room("BRIDGE");
     chr_a = new Room("CHR-A");
     chr_b = new Room("CHR-B");
@@ -84,10 +83,39 @@ void ZorkUL::createRooms()
     le = new Room("le");
     lf = new Room("lf");
 
-    a->addItem(new Item("x", 1, "Test"));
-    a->addItem(new Item("y", 2, "Test"));
+    a->addItem(new Item("Dog"));
+    a->addItem(new Item("Cat"));
+    a->addItem(new Item("Bat"));
+    //a->addItem(new Item("x", 1,"Dog"));
+    //a->addItem(new Item("y", 2,"Cat"));
+    e_room_a->addItem(new Item("Mushroom"));
+    e_room_b->addItem(new Item("Clock"));
+    la->addItem(new Item("Ham Sandwich"));
+    la->addItem(new Item("Book - Guide to C++"));
+    la->addItem(new Item("Coffee Cup"));
+    la->addItem(new Item("Calendar"));
+    lb->addItem(new Item("Foot"));
+    lb->addItem(new Item("Magazine"));
+    lb->addItem(new Item("Fork"));
+    lb->addItem(new Item("Football"));
+    lc->addItem(new Item("Candle"));
+    lc->addItem(new Item("Small Bucket"));
+    lc->addItem(new Item("Globe"));
+    lc->addItem(new Item("Ant Farm"));
+    ld->addItem(new Item("Bottle"));
+    ld->addItem(new Item("Laptop"));
+    ld->addItem(new Item("Frog"));
+    ld->addItem(new Item("Model Spacecraft"));
+    le->addItem(new Item("Edible Seaweed"));
+    le->addItem(new Item("Map"));
+    le->addItem(new Item("Engine Manual"));
+    le->addItem(new Item("Hard Disk"));
+    lf->addItem(new Item("Onion"));
+    lf->addItem(new Item("Spacesuit"));
+    lf->addItem(new Item("Meteorite"));
+    lf->addItem(new Item("Photograph"));
 
-    start->addItem(new Item("yy", 4, 44,0)); //was k->addItem
+    //start->addItem(new Item("yy", 4, 44,0)); //was k->addItem
 
 
     //             (N, E, S, W)
@@ -101,8 +129,7 @@ void ZorkUL::createRooms()
     h->setExits(NULL, f, c, NULL);
     i->setExits(c, d, NULL, NULL);
     ai->setExits(d, NULL, start, NULL);
-
-    start->setExits(ai, chr_b, NULL, chr_a);
+    start->setExits(ai, chr_b, lc, chr_a);
     bridge->setExits(NULL, NULL, f, NULL);
     chr_a->setExits(NULL, start, dcr_a, NULL);
     chr_b->setExits(NULL, NULL, dcr_b, start);
@@ -110,22 +137,13 @@ void ZorkUL::createRooms()
     dcr_b->setExits(chr_b, e_room_b, NULL, NULL);
     e_room_a->setExits(NULL, dcr_a, NULL, NULL);
     e_room_b->setExits(NULL, NULL, NULL, dcr_b);
-<<<<<<< HEAD
-
-    /*la->setExits(NULL, NULL, NULL, NULL);
-    lb->setExits(NULL, NULL, NULL, NULL);
-    lc->setExits(NULL, NULL, NULL, NULL);
-    ld->setExits(NULL, NULL, NULL, NULL);
-    le->setExits(NULL, NULL, NULL, NULL);
-    lf->setExits(NULL, NULL, NULL, NULL);*/
-=======
     la->setExits(lb, ld, NULL, NULL);
     lb->setExits(lc, le, la, NULL);
     lc->setExits(start, lf, lb, NULL);
     ld->setExits(le, NULL, NULL, la);
     le->setExits(lf, NULL, lb, ld);
     lf->setExits(NULL, NULL, le, lc);
->>>>>>> 4ecb5c7727afce6bb6d48cef216e5d89a782bdda
+
 
 
     tmpMap[1]= a;

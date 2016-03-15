@@ -4,6 +4,12 @@
 Item::Item(){
 
 }
+
+Item::Item(string inDescription)
+{
+    description = inDescription;
+}
+
 Item::Item (string inDescription, int inWeightGrams, float inValue, int weapon) {
 	description = inDescription;
 	setWeight(inWeightGrams);

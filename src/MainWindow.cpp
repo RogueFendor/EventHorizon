@@ -166,7 +166,7 @@ void MainWindow::on_showNewCharacter_clicked()
 }
 
 
-void  MainWindow::verifyAnswer(bool, int i){
+void  MainWindow::verifyAnswer(bool){
 
     qDebug()<<"Test this:";
 }
