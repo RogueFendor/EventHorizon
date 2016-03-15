@@ -110,23 +110,13 @@ void ZorkUL::createRooms()
     dcr_b->setExits(chr_b, e_room_b, NULL, NULL);
     e_room_a->setExits(NULL, dcr_a, NULL, NULL);
     e_room_b->setExits(NULL, NULL, NULL, dcr_b);
-<<<<<<< HEAD
 
-    /*la->setExits(NULL, NULL, NULL, NULL);
-    lb->setExits(NULL, NULL, NULL, NULL);
-    lc->setExits(NULL, NULL, NULL, NULL);
-    ld->setExits(NULL, NULL, NULL, NULL);
-    le->setExits(NULL, NULL, NULL, NULL);
-    lf->setExits(NULL, NULL, NULL, NULL);*/
-=======
     la->setExits(lb, ld, NULL, NULL);
     lb->setExits(lc, le, la, NULL);
     lc->setExits(start, lf, lb, NULL);
     ld->setExits(le, NULL, NULL, la);
     le->setExits(lf, NULL, lb, ld);
     lf->setExits(NULL, NULL, le, lc);
->>>>>>> 4ecb5c7727afce6bb6d48cef216e5d89a782bdda
-
 
     tmpMap[1]= a;
     tmpMap[2]= b;

@@ -1,5 +1,7 @@
 
 #include "Question.h"
+#include<QString>
+#include<QStringList>
 
 Question::Question()
 {
@@ -38,6 +40,11 @@ QString Question::getQuestion(int i){
    }
 }
 void Question::clearQuestions(){
+
+}
+void Question::checkAnswer(int i){
+
+   // QStringList *list = getQuestion(getCounter()+1).split(",");
 
 }
 void Question::setUp(int id){

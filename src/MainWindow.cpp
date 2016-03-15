@@ -120,7 +120,7 @@ void MainWindow::renderQuestion(){
 
       b->setText(n.at(i));
       b->setFont(font);
-      connect(b,SIGNAL(clicked(bool,i)),this,SLOT(verifyAnswer(bool, i)));
+      connect(b,SIGNAL(clicked(bool)),this,SLOT(verifyAnswer(bool)));
 
       widgetLayOut->addWidget(b,i,0);
       b->adjustSize();
@@ -166,9 +166,9 @@ void MainWindow::on_showNewCharacter_clicked()
 }
 
 
-void  MainWindow::verifyAnswer(bool, int i){
+void  MainWindow::verifyAnswer(bool){
 
-    qDebug()<<"Test this:";
+
 }
 
 

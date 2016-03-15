@@ -14,12 +14,13 @@ private:
 
     void clearQuestions();
 public:
+    Question();
     QString a;
     QString b;
     QString c;
     QString d;
     QString e;
-    Question();
+   void checkAnswer(int i);
 
     QString getQuestion(int i);
     void setUp(int id);
