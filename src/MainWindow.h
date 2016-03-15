@@ -18,6 +18,8 @@ public:
     void PlInfo();
     void ChalInfo();
     void setTextAreas();
+    void displayMessage();
+    void renderQuestion();
 
     ~MainWindow();
     ZorkUL *game;
@@ -28,7 +30,16 @@ public:
     QPalette *currentPallete;
     QString currentString;
 
+
+
+public slots:
+
+      void verifyAnswer(bool);
+
+
 private slots:
+
+
 
     void on_buttonChall_clicked();
 

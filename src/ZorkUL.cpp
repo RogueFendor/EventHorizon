@@ -85,6 +85,7 @@ void ZorkUL::createRooms()
 
     a->addItem(new Item("x", 1, "Test"));
     a->addItem(new Item("y", 2, "Test"));
+
     start->addItem(new Item("yy", 4, 44,0)); //was k->addItem
 
 
@@ -99,6 +100,7 @@ void ZorkUL::createRooms()
   h->setExits(NULL, f, NULL, NULL);
     i->setExits(NULL, d, NULL, NULL);
     ai->setExits(d, NULL, start, NULL);
+
     start->setExits(ai, chr_b, NULL, chr_a);
     bridge->setExits(NULL, NULL, f, NULL);
     chr_a->setExits(NULL, start, dcr_a, NULL);
@@ -107,6 +109,7 @@ void ZorkUL::createRooms()
     dcr_b->setExits(chr_b, e_room_b, NULL, NULL);
     e_room_a->setExits(NULL, dcr_a, NULL, NULL);
     e_room_b->setExits(NULL, NULL, NULL, dcr_b);
+
     /*la->setExits(NULL, NULL, NULL, NULL);
     lb->setExits(NULL, NULL, NULL, NULL);
     lc->setExits(NULL, NULL, NULL, NULL);
@@ -138,10 +141,14 @@ void ZorkUL::createRooms()
  */
 // Wellcome :-)
 
-
+void ZorkUL::setGameStat(bool gS){
+    gameStat = gS;
+}
+bool ZorkUL::getGameStat(){
+    return gameStat;
+}
 QString ZorkUL::printWelcome() {
-     QString info =QString("<font color='red'><b>Wellcome to</b></font></br><font color='blue'><h3>EventHorizon</h3>");
-     //Wellcome to EventHorizon\nCaptain Rogers We are happy to see you!";
+     QString info =QString("<font color='red'><b>Wellcome to EventHorizon<b><br/>Captain Rogers We are happy to see you!</b></font>");
      return info;
 }
 
@@ -178,6 +185,7 @@ QString ZorkUL:: returnRoom(){
 QString ZorkUL:: returnLive(){
 
 }
+
 void ZorkUL::teleport(){
     bool runGen =true;
     int number;
@@ -201,12 +209,16 @@ void ZorkUL::teleport(){
                 // chech here for challenge status of main character
                 // check challenges here if not finished previously
                 //do nothing here otherwise
+
                 if(currentChallenger->getNumOfChallenges()>0){
-                  roomInfo();
+                    bool n =false;
+                    setGameStat(n);
                 }
                 else
                 {
               //      ~currentChallenger();
+                    bool n = true;
+                    setGameStat(n);
                     createChallenger(createChallengerID());
                     roomInfo();
                     challengerInfo();
@@ -249,10 +261,13 @@ void ZorkUL::go(string direction){
         else
         {
             if(currentChallenger->getNumOfChallenges()>0){
-               qDebug()<<"Test 2";
+               bool n = false;
+               setGameStat(n);
            }
             else{
                 // ~currentChallenger();
+                bool n = true;
+                 setGameStat(n);
                  createChallenger(createChallengerID());
             }
         }

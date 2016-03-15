@@ -8,14 +8,23 @@ using namespace std;
 class Question //: public MainWindow
 {
 private:
-    vector<QString> *currentQuestion;
-    bool *next;
-    void setNext();
-    bool getNext();
-    void setUp(int id);
+    bool next;
+    void setNext(bool n);
+    int counter =1;
+
     void clearQuestions();
 public:
+    QString a;
+    QString b;
+    QString c;
+    QString d;
+    QString e;
     Question();
+
     QString getQuestion(int i);
+    void setUp(int id);
+    void setCounter(int ctr);
+    int getCounter();
+    bool getNext();
 };
 #endif // QUESTION_H

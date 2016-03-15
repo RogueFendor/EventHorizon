@@ -17,6 +17,7 @@ private:
     Character* currentPlayer;
     Character* currentChallenger =NULL;
     Question* currentQuestion;
+    bool gameStat;
     QString *str;
 	void createRooms();
     void createMainCharacter();
@@ -27,10 +28,10 @@ private:
 
 public:
 	ZorkUL();
+    bool getGameStat();
+    void setGameStat(bool n);
     int createChallengerID();
     int idRequest();
-
-
     int returnNumberOfChallenges();
     QString returnRoom();
     QString returnLive();

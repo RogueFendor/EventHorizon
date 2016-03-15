@@ -26,7 +26,7 @@ void CharacterDisplay::setGamePointer(ZorkUL *zorkUl){
 }
 void CharacterDisplay::setType(int id){
     switch(id){
-     case 1: ui->widget->setStyleSheet("border-image: url(:/new/largeImg/img/char9.jpg)");
+     case 1: ui->widget->setStyleSheet("border-image: url(:/new/largeImg/img/char3.jpg)");
              ui->button1->setText("Items");
              ui->button2->setText("Take");
              ui->button3->setText("Help");

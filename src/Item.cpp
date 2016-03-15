@@ -10,11 +10,13 @@ Item::Item (string inDescription, int inWeightGrams, float inValue, int weapon) 
 	value = inValue;
     setWeaponCheck(weapon);
 }
+
 Item::Item(string inInformation, int type, string descr ){
     setInformation(inInformation);
     setDescription(descr);
     setInfoCheck(true, type);
 }
+
 void Item::setDescription(string inDescription) {
     description = inDescription;
 }

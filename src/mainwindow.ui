@@ -175,21 +175,16 @@ color: rgb(17, 240, 216);</string>
      <string notr="true">background-color: rgba(79, 157, 147, 42);</string>
     </property>
    </widget>
-   <widget class="QTextBrowser" name="textArea2">
+   <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>670</x>
+      <x>640</x>
       <y>260</y>
-      <width>361</width>
+      <width>401</width>
       <height>221</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(79, 157, 147, 42);</string>
-    </property>
-    <property name="placeholderText">
-     <string/>
-    </property>
+    <layout class="QGridLayout" name="textArea2"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

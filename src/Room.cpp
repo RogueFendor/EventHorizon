@@ -1,5 +1,5 @@
 #include "Room.h"
-
+#include<QDebug>
 // Constuctor
 Room::Room(string description) {
 	this->description = description;
@@ -89,6 +89,7 @@ string Room::getItemDetails(int id){
 */
 
 string Room::displayItem() {
+    qDebug()<<"How Many time do i print out";
     string tempString = "<b>Available Items:<b><br/>Item name: ";
     int sizeItems = (itemsInRoom.size());
     if (itemsInRoom.size() < 1) {
