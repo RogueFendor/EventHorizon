@@ -1,13 +1,10 @@
 
 #include "Question.h"
-<<<<<<< HEAD
 #include<QString>
 #include<QStringList>
 
-=======
 #include <QDebug>
 #include<QStringList>
->>>>>>> Ben_Questions
 Question::Question()
 {
    counter =0;

@@ -144,7 +144,6 @@ void ZorkUL::createRooms()
     dcr_b->setExits(chr_b, e_room_b, NULL, NULL);
     e_room_a->setExits(NULL, dcr_a, NULL, NULL);
     e_room_b->setExits(NULL, NULL, NULL, dcr_b);
-<<<<<<< HEAD
     la->setExits(lb, ld, NULL, NULL);
     lb->setExits(lc, le, la, NULL);
     lc->setExits(start, lf, lb, NULL);
@@ -152,22 +151,6 @@ void ZorkUL::createRooms()
     le->setExits(lf, NULL, lb, ld);
     lf->setExits(NULL, NULL, le, lc);
 
-<<<<<<< HEAD
-=======
->>>>>>> 5ae0f660f61d32301e1f3d09e8f179379eadf080
-    la->setExits(lb, ld, NULL, NULL);
-    lb->setExits(lc, le, la, NULL);
-    lc->setExits(start, lf, lb, NULL);
-    ld->setExits(le, NULL, NULL, la);
-    le->setExits(lf, NULL, lb, ld);
-    lf->setExits(NULL, NULL, le, lc);
-<<<<<<< HEAD
-=======
-=======
-
->>>>>>> 5ae0f660f61d32301e1f3d09e8f179379eadf080
-
->>>>>>> Ben_Questions
 
     tmpMap[1]= a;
     tmpMap[2]= b;
@@ -228,7 +211,6 @@ QString ZorkUL::itemDetails(int id){
     return itemDetail;
 }
 
-// Generic string to QString
 QString ZorkUL::genericStringsToQString(string str){
     return QString::QString::fromStdString(str);
 }

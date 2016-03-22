@@ -152,12 +152,6 @@ void MainWindow::renderQuestion(){
    else{
 
 
-<<<<<<< HEAD
-      b->setText(n.at(i));
-      b->setFont(font);
-      connect(b,SIGNAL(clicked(bool)),this,SLOT(verifyAnswer(bool)));
-=======
->>>>>>> Ben_Questions
 
    }
 
@@ -217,16 +211,6 @@ void MainWindow::on_showNewCharacter_clicked()
 
 
 void  MainWindow::verifyAnswer(bool){
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 5ae0f660f61d32301e1f3d09e8f179379eadf080
-
-}
-=======
-
->>>>>>> Ben_Questions
 
   if(question->verifyAnswer(MainWindow::sender()->objectName())==true){
        question->setCounter(question->getCounter()+1);
@@ -243,6 +227,7 @@ void  MainWindow::verifyAnswer(bool){
            qApp->processEvents();
            delete currentChallenger;
            delete game->currentChallenger;
+           game->setChallengerExists(false);
       }
   }
   else{

@@ -21,12 +21,9 @@ public:
     QString c;
     QString d;
     QString e;
-<<<<<<< HEAD
    void checkAnswer(int i);
-=======
+
     QString currentQuestion;
-    Question();
->>>>>>> Ben_Questions
 
     QString getQuestion(int i);
     void setUp(int id);
