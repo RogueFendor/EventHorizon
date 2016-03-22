@@ -20,6 +20,7 @@ private:
      int challengerID;
      int lives;
      int numOfChallenges;
+     bool challPlayed = false;
      void setCharacter(string name);
      void setGender(string gender);
      void setItemCheck(string item);
@@ -30,7 +31,8 @@ public:
     Character();
     ~Character();
     Character(int id);
-
+    bool challengePlayed();
+    void challengePlayed(bool n);
     int getNumOfChallenges();
     void setNumOfChallenges(int challenges);
     void addItems(Item *item);

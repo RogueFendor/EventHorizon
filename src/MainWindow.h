@@ -20,6 +20,12 @@ public:
     void setTextAreas();
     void displayMessage();
     void renderQuestion();
+    bool challengerExists;
+    void setChallengerExist(bool n);
+    bool getChallengerExists();
+    const QString *danger;
+    const QString *safe;
+    void destroyWindow();
 
     ~MainWindow();
     ZorkUL *game;
@@ -29,6 +35,7 @@ public:
     QPixmap *currentPixMap;
     QPalette *currentPallete;
     QString currentString;
+
 
 
 

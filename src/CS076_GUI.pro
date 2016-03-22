@@ -22,7 +22,8 @@ SOURCES +=\
     Control.cpp \
     Map.cpp \
     Question.cpp \
-    MainWindow.cpp
+    MainWindow.cpp \
+    ZorkULManager.cpp
 
 HEADERS  += \
     Room.h \
@@ -33,7 +34,8 @@ HEADERS  += \
     Control.h \
     Map.h \
     Question.h \
-    MainWindow.h
+    MainWindow.h \
+    ZorkULManager.h
 
 FORMS    += mainwindow.ui \
     map.ui \
@@ -56,4 +58,7 @@ OTHER_FILES += \
     img/char3.jpg \
     img/char2.jpg \
     img/char1.jpg \
-    img/AI.jpg
+    img/AI.jpg \
+    img/congrats.jpg \
+    img/bomb.jpg \
+    img/correct.png
