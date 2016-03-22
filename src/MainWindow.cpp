@@ -218,7 +218,10 @@ void MainWindow::on_showNewCharacter_clicked()
 
 void  MainWindow::verifyAnswer(bool){
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5ae0f660f61d32301e1f3d09e8f179379eadf080
 
 }
 =======

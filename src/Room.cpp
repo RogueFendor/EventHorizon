@@ -92,6 +92,8 @@ string Room::displayItem() {
     //string messageString = "<b>Available Items:<b><br/>Item name: ";
     string messageString = "<b>Available Items:";
     string itemString = "";
+<<<<<<< HEAD
+=======
     int sizeItems = (itemsInRoom.size());
     if (itemsInRoom.size() < 1) {
         messageString = "<b>No items in room!<b>";
@@ -107,6 +109,30 @@ string Room::displayItem() {
         }
     return messageString+=itemString + "<br>";
 }
+/*string Room::displayItem() {
+    qDebug()<<"How Many time do i print out";
+    string tempString = "<b>Available Items:<b><br/>Item name: ";
+>>>>>>> 5ae0f660f61d32301e1f3d09e8f179379eadf080
+    int sizeItems = (itemsInRoom.size());
+    if (itemsInRoom.size() < 1) {
+        messageString = "<b>No items in room!<b>";
+        }
+    else if (itemsInRoom.size() > 0) {
+       int x = 0;
+       //itemString = "";
+        for (int n = sizeItems; n > 0; n--) {
+            //itemString +="<br/>"+ itemString + itemsInRoom[x].getShortDescription();
+            itemString +="<br/>"+ itemsInRoom[x].getShortDescription();
+            x++;
+            }
+        }
+<<<<<<< HEAD
+    return messageString+=itemString + "<br>";
+}
+=======
+    return tempString;
+}*/
+>>>>>>> 5ae0f660f61d32301e1f3d09e8f179379eadf080
 
 
 // return the number of current items in the item vector

@@ -76,7 +76,6 @@ void ZorkUL::createRooms()
     i = new Room("i");
     ai = new Room("AI");//was room j
     start = new Room("START"); //was room k
-
     bridge = new Room("BRIDGE");
     chr_a = new Room("CHR-A");
     chr_b = new Room("CHR-B");
@@ -145,6 +144,7 @@ void ZorkUL::createRooms()
     dcr_b->setExits(chr_b, e_room_b, NULL, NULL);
     e_room_a->setExits(NULL, dcr_a, NULL, NULL);
     e_room_b->setExits(NULL, NULL, NULL, dcr_b);
+<<<<<<< HEAD
     la->setExits(lb, ld, NULL, NULL);
     lb->setExits(lc, le, la, NULL);
     lc->setExits(start, lf, lb, NULL);
@@ -153,13 +153,19 @@ void ZorkUL::createRooms()
     lf->setExits(NULL, NULL, le, lc);
 
 <<<<<<< HEAD
+=======
+>>>>>>> 5ae0f660f61d32301e1f3d09e8f179379eadf080
     la->setExits(lb, ld, NULL, NULL);
     lb->setExits(lc, le, la, NULL);
     lc->setExits(start, lf, lb, NULL);
     ld->setExits(le, NULL, NULL, la);
     le->setExits(lf, NULL, lb, ld);
     lf->setExits(NULL, NULL, le, lc);
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> 5ae0f660f61d32301e1f3d09e8f179379eadf080
 
 >>>>>>> Ben_Questions
 
