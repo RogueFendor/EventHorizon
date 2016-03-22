@@ -8,16 +8,17 @@
 #include <iostream>
 #include <string>
 #include<Question.h>
+#include<ZorkULManager.h>
 
 using namespace std;
 
-class ZorkUL {
+class ZorkUL : public ZorkULManager  {
 private:
 	Room *currentRoom;
-    Character* currentPlayer;
-    Character* currentChallenger =NULL;
+
     Question* currentQuestion;
     bool gameStat;
+    bool challengerExists;
     QString *str;
 	void createRooms();
     void createMainCharacter();
@@ -28,6 +29,10 @@ private:
 
 public:
 	ZorkUL();
+    Character* currentPlayer;
+    Character* currentChallenger =NULL;
+    bool getChallengerExists();
+    void setChallengerExists(bool n);
     bool getGameStat();
     void setGameStat(bool n);
     int createChallengerID();

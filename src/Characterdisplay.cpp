@@ -90,7 +90,7 @@ void CharacterDisplay::setType(int id){
         ui->button2->setText("Take");
         ui->button3->setText("Help");
         break;
-     case 8: ui->widget->setStyleSheet("border-image: url(:/new/largeImg/img/char7.jpg)");
+     case 8: ui->widget->setStyleSheet("border-image: url(:/new/largeImg/img/char7.jpeg)");
         ui->button1->setStyleSheet("color: rgb(79, 193, 185);");
         ui->button2->setStyleSheet("color: rgb(79, 193, 185);");
         ui->button3->setStyleSheet("color: rgb(79, 193, 185);");

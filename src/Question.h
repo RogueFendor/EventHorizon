@@ -11,6 +11,7 @@ private:
     bool next;
     void setNext(bool n);
     int counter =1;
+    int numOfQuestion;
 
     void clearQuestions();
 public:
@@ -20,12 +21,22 @@ public:
     QString c;
     QString d;
     QString e;
+<<<<<<< HEAD
    void checkAnswer(int i);
+=======
+    QString currentQuestion;
+    Question();
+>>>>>>> Ben_Questions
 
     QString getQuestion(int i);
     void setUp(int id);
     void setCounter(int ctr);
+    void setCurrentQuestion(QString qS);
+    bool verifyAnswer(QString n);
+    QString getCurrentQuestion();
     int getCounter();
+    void setNumOfQuestions(int x);
+    int getNumOfQuestions();
     bool getNext();
 };
 #endif // QUESTION_H

@@ -16,6 +16,10 @@
         <file>img/char2.jpg</file>
         <file>img/char1.jpg</file>
         <file>img/AI.jpg</file>
+        <file>img/west.png</file>
+        <file>img/south.png</file>
+        <file>img/north.png</file>
+        <file>img/east.png</file>
     </qresource>
     <qresource prefix="/">
         <file>img/control.jpg</file>

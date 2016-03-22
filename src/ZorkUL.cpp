@@ -38,20 +38,27 @@ void ZorkUL::createMainCharacter(){
                 "\nmost likely hostile towards you."
                 "\nGood luck...\n";
     currentPlayer->addItems(new Item(info,1,"INFO"));
-
+    gameStat =false;
+    challengerExists =false;
 }
 // instantiate Challenger
 void ZorkUL::createChallenger( int id){
 
     currentChallenger =new Character(id);
     currentChallenger->setChallengerID(id);
+    setChallengerExists(true);
 
 }
 /*
 Method to create all rooms
 and adding items into them
 */
-
+void ZorkUL::setChallengerExists(bool n){
+    challengerExists = n;
+}
+bool ZorkUL::getChallengerExists(){
+    return challengerExists;
+}
 void ZorkUL::createRooms()
 {
     Room *a, *b, *c, *d, *e, *f, *g, *h, *i, *ai, *start,
@@ -84,10 +91,39 @@ void ZorkUL::createRooms()
     le = new Room("le");
     lf = new Room("lf");
 
-    a->addItem(new Item("x", 1, "Test"));
-    a->addItem(new Item("y", 2, "Test"));
+    a->addItem(new Item("Dog"));
+    a->addItem(new Item("Cat"));
+    a->addItem(new Item("Bat"));
+    //a->addItem(new Item("x", 1,"Dog"));
+    //a->addItem(new Item("y", 2,"Cat"));
+    e_room_a->addItem(new Item("Mushroom"));
+    e_room_b->addItem(new Item("Clock"));
+    la->addItem(new Item("Ham Sandwich"));
+    la->addItem(new Item("Book - Guide to C++"));
+    la->addItem(new Item("Coffee Cup"));
+    la->addItem(new Item("Calendar"));
+    lb->addItem(new Item("Foot"));
+    lb->addItem(new Item("Magazine"));
+    lb->addItem(new Item("Fork"));
+    lb->addItem(new Item("Football"));
+    lc->addItem(new Item("Candle"));
+    lc->addItem(new Item("Small Bucket"));
+    lc->addItem(new Item("Globe"));
+    lc->addItem(new Item("Ant Farm"));
+    ld->addItem(new Item("Bottle"));
+    ld->addItem(new Item("Laptop"));
+    ld->addItem(new Item("Frog"));
+    ld->addItem(new Item("Model Spacecraft"));
+    le->addItem(new Item("Edible Seaweed"));
+    le->addItem(new Item("Map"));
+    le->addItem(new Item("Engine Manual"));
+    le->addItem(new Item("Hard Disk"));
+    lf->addItem(new Item("Onion"));
+    lf->addItem(new Item("Spacesuit"));
+    lf->addItem(new Item("Meteorite"));
+    lf->addItem(new Item("Photograph"));
 
-    start->addItem(new Item("yy", 4, 44,0)); //was k->addItem
+    //start->addItem(new Item("yy", 4, 44,0)); //was k->addItem
 
 
     //             (N, E, S, W)
@@ -101,8 +137,7 @@ void ZorkUL::createRooms()
     h->setExits(NULL, f, c, NULL);
     i->setExits(c, d, NULL, NULL);
     ai->setExits(d, NULL, start, NULL);
-
-    start->setExits(ai, chr_b, NULL, chr_a);
+    start->setExits(ai, chr_b, lc, chr_a);
     bridge->setExits(NULL, NULL, f, NULL);
     chr_a->setExits(NULL, start, dcr_a, NULL);
     chr_b->setExits(NULL, NULL, dcr_b, start);
@@ -110,13 +145,23 @@ void ZorkUL::createRooms()
     dcr_b->setExits(chr_b, e_room_b, NULL, NULL);
     e_room_a->setExits(NULL, dcr_a, NULL, NULL);
     e_room_b->setExits(NULL, NULL, NULL, dcr_b);
-
     la->setExits(lb, ld, NULL, NULL);
     lb->setExits(lc, le, la, NULL);
     lc->setExits(start, lf, lb, NULL);
     ld->setExits(le, NULL, NULL, la);
     le->setExits(lf, NULL, lb, ld);
     lf->setExits(NULL, NULL, le, lc);
+
+<<<<<<< HEAD
+    la->setExits(lb, ld, NULL, NULL);
+    lb->setExits(lc, le, la, NULL);
+    lc->setExits(start, lf, lb, NULL);
+    ld->setExits(le, NULL, NULL, la);
+    le->setExits(lf, NULL, lb, ld);
+    lf->setExits(NULL, NULL, le, lc);
+=======
+
+>>>>>>> Ben_Questions
 
     tmpMap[1]= a;
     tmpMap[2]= b;
@@ -217,6 +262,7 @@ void ZorkUL::teleport(){
 
                 if(currentChallenger->getNumOfChallenges()>0){
                     bool n =false;
+                    qDebug()<<"Changing Now in getNumOfChallenges";
                     setGameStat(n);
                 }
                 else
@@ -258,25 +304,32 @@ void ZorkUL::go(string direction){
         // check challenges here if not finished previously
         //do nothing here otherwise
         //qDebug()<<currentChallenger->getNumOfChallenges();
-
-        if(currentChallenger==NULL){
-          // do nothing keep going here
-          createChallenger(createChallengerID());
+        if(getChallengerExists()==false){
+            if(createChallengerID()<40){
+                createChallenger(createChallengerID());
+                qDebug()<<"Test 2 here changing value";
+                 bool n = true;
+                 setGameStat(n);
+                 createChallenger(createChallengerID());
+            }
         }
-        else
-        {
-            if(currentChallenger->getNumOfChallenges()>0){
+        else{
+           if(currentChallenger->getNumOfChallenges()>0){
+
+               qDebug()<<"Test 1 here changing value";
+               qDebug()<<currentChallenger->getNumOfChallenges();
                bool n = false;
                setGameStat(n);
            }
             else{
                 // ~currentChallenger();
-                bool n = true;
+                qDebug()<<"Test 2 here changing value";
+                 bool n = true;
                  setGameStat(n);
                  createChallenger(createChallengerID());
             }
         }
-	}
+   }
 }
 int ZorkUL::idRequest(){
     return currentChallenger->getChallengerID();
@@ -317,5 +370,8 @@ int ZorkUL::createChallengerID(){
     }
     else if(tmp.compare("BRIDGE")==0){
        return 12;
+    }
+    else{
+        return 42;
     }
  }

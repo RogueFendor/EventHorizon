@@ -10,11 +10,17 @@ using namespace std;
 
 Character::Character(int id){
    setCharacter(id);
+   challPlayed = false;
 }
 Character::Character(){
 
 }
-
+void Character::challengePlayed(bool n){
+    challPlayed = n;
+}
+bool Character::challengePlayed(){
+    return challPlayed;
+}
 void Character::setChallengerID(int id){
           challengerID = id;
 }
