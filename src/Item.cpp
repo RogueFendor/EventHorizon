@@ -9,7 +9,25 @@ Item::Item(string inDescription)
 {
     description = inDescription;
 }
+bool Item::operator==(const Item& d)
+ {
 
+
+    if(description.compare(d.description)!=0){
+        cout<<"Iam in here\n FASLE";
+        cout<<"\ndescription LHS "<<description<<" ";
+        cout<<"\ndescription RHS "<<d.description<<" ";
+        cout<<"\n";
+        return false;
+    }
+    else{
+        cout<<"Iam in here\n TRUE";
+        cout<<"\ndescription LHS "<<description<<" ";
+        cout<<"\ndescription RHS "<<d.description<<" ";
+        cout<<"\n";
+        return false;
+    }
+ }
 Item::Item (string inDescription, int inWeightGrams, float inValue, int weapon) {
 	description = inDescription;
 	setWeight(inWeightGrams);

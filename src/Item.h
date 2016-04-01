@@ -24,6 +24,7 @@ private:
     bool isEncryptedInformation();
 
 public:
+    bool operator==(const Item& rhs);
     Item(string description, int inWeight, float inValue,int weapon );
     Item(string description);
     Item(string inInformation, int type, string descr);

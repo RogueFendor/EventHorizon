@@ -110,6 +110,25 @@ string Room::displayItem() {
 }
 
 // return the number of current items in the item vector
+
+string Room::populateComboBox(){
+
+    string messageString = "Available Items:";
+    string itemString = "";
+
+    int sizeItems = (itemsInRoom.size());
+    if (itemsInRoom.size() < 1) {
+        messageString = this->shortDescription();
+        }
+    else if (itemsInRoom.size() > 0) {
+       int x = 0;
+        for (int n = sizeItems; n > 0; n--) {
+            itemString +=","+ itemsInRoom[x].getShortDescription();
+            x++;
+            }
+        }
+    return messageString+=itemString;
+}
 int Room::numberOfItems() {
     return itemsInRoom.size();
 }

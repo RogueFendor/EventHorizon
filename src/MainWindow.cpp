@@ -8,8 +8,10 @@
 #include<QLabel>
 #include<QFont>
 #include<QRadioButton>
+#include<QScrollArea>
 #include "Question.h"
 #include<QStringList>
+#include<QComboBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -24,23 +26,25 @@ MainWindow::MainWindow(QWidget *parent) :
         this->setPalette(palette);
         QPixmap pixN(":/new/largeImg/img/north.png");
         QIcon icon(pixN);
-        ui->buttonNorth->setIcon(pixN);
+        ui->buttonNorth->setIcon(icon);
         QPixmap pixW(":/new/largeImg/img/west.png");
         QIcon icon2(pixW);
-        ui->buttonWest->setIcon(pixW);
+        ui->buttonWest->setIcon(icon2);
         QPixmap pixE(":/new/largeImg/img/east.png");
         QIcon icon3(pixE);
-        ui->buttonEast->setIcon(pixE);
+        ui->buttonEast->setIcon(icon3);
         QPixmap pixS(":/new/largeImg/img/south.png");
         QIcon icon4(pixS);
-        ui->buttonSouth->setIcon(pixS);
+        ui->buttonSouth->setIcon(icon4);
     // ui->centralWidget->setStyleSheet("border-image: url(:/new/largeImg/img/background_1.jpg)");
      game = new ZorkUL;     
      PlInfo();
      wellcome();
      ui->playLayout->addWidget(currentPlayer,0,1);
      ui->buttonChall->setEnabled(false);
+     ui->itemBox->setVisible(false);
 }
+
 void MainWindow::wellcome(){
          QString n =game->playerInfo();
          currentString =n;
@@ -58,9 +62,11 @@ void MainWindow::PlInfo(){
 
 
 }
+
 void MainWindow(){
 
 }
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -69,6 +75,7 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::setNewChallenger(){
+
     if(game->getGameStat()==true ){
         currentChallenger = new CharacterDisplay;
         ui->playLayout_2->addWidget(currentChallenger,0,1);
@@ -148,11 +155,12 @@ void MainWindow::renderQuestion(){
           ui->textArea2->addWidget(label,i,0);
           ui->textArea2->addWidget(b,i,1);
        }
+       ui->itemBox->setVisible(false);
+       ui->textArea1->setVisible(true);
    }
    else{
-
-
-
+       ui->itemBox->setVisible(true);
+       ui->textArea1->setVisible(false);
    }
 
 }
@@ -160,6 +168,7 @@ void MainWindow::on_buttonNorth_clicked()
 {
     game->go("north");
      qDebug()<<"N1"<<game->getGameStat();
+
      if(game->createChallengerID()<40){
        setNewChallenger();
      }
@@ -169,12 +178,16 @@ void MainWindow::on_buttonNorth_clicked()
 }
 void MainWindow::setTextAreas(){
     ui->textArea1->setText(game->returnRoom());
+    QStringList n =getQStringList();
+    ui->itemBox->clear();
+    ui->itemBox->addItems(n);
     qApp->processEvents();
 }
 void MainWindow::on_buttonEast_clicked()
 {
-    game->go("east");
+     game->go("east");
      qDebug()<<"E1"<<game->getGameStat();
+     qDebug()<<"E1"<<game->idRequest();
     if(game->createChallengerID()<40){
       setNewChallenger();
     }
@@ -214,7 +227,7 @@ void  MainWindow::verifyAnswer(bool){
 
   if(question->verifyAnswer(MainWindow::sender()->objectName())==true){
        question->setCounter(question->getCounter()+1);
-
+       game->currentPlayer->setNumOfChallenges(game->currentPlayer->getNumOfChallenges()+1);
       if(question->getNumOfQuestions() > question->getCounter()){
           game->currentChallenger->setNumOfChallenges(game->currentChallenger->getNumOfChallenges()-1);
           destroyWindow();
@@ -264,3 +277,12 @@ void MainWindow::displayMessage(){
         tr("New Challenges Available!\nSelect Challenges from control panel") );
 
 }
+QStringList MainWindow::getQStringList(){
+
+   QString n =game->genericStringsToQString(game->currentRoom->populateComboBox());
+   QStringList tmp = n.split(",");
+   ui->itemBox->addItems(tmp);
+   return tmp ;
+
+}
+

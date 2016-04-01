@@ -10,6 +10,8 @@
 #include <QApplication>
 #include <QDebug>
 #include <QMessageBox>
+//#include <algorithm>
+
 
 using namespace std;
 // Our Constructor
@@ -26,7 +28,7 @@ and adds an item to the Character
 */
 void ZorkUL::createMainCharacter(){
 
-    currentPlayer =new Character(1);
+    currentPlayer =new MainCharacter(1);
     string info="If you are reading this please.."
                 "You must find Emilies AI we named"
                 "him 'Goran'....he can help you!"
@@ -44,9 +46,10 @@ void ZorkUL::createMainCharacter(){
 // instantiate Challenger
 void ZorkUL::createChallenger( int id){
 
-    currentChallenger =new Character(id);
+    currentChallenger =new Challenger(id);
     currentChallenger->setChallengerID(id);
     setChallengerExists(true);
+    setChallengerNeverExisted();
 
 }
 /*
@@ -180,6 +183,23 @@ void ZorkUL::createRooms()
  */
 // Wellcome :-)
 
+void ZorkUL::setChallengerNeverExisted(){
+    compMap.push_back(currentChallenger->getChallengerID());
+}
+
+bool ZorkUL::ChallengerNeverExisted(int challId){
+    if(find(compMap.begin(), compMap.end(), challId ) != compMap.end()){
+        // it found challenger name in list
+        qDebug()<<challId<<"FALSE";
+        return false;
+    }
+    else{
+        // did not find challenger name in list
+        qDebug()<<challId<<"TRUE";
+        return true;
+    }
+
+}
 void ZorkUL::setGameStat(bool gS){
     gameStat = gS;
 }
@@ -280,26 +300,36 @@ int ZorkUL::generateRandomNumber(){
     return randomNumber;
 }
 void ZorkUL::go(string direction){
+    qDebug()<<"in go function";
 	Room* nextRoom = currentRoom->nextRoom(direction);
     if (nextRoom == NULL){
        // we see later what to do here
        // print somethin nice maybe?
+        setGameStat(false);
     }
 	else
 	{
         //~currentRoom();
 		currentRoom = nextRoom;
+        qDebug()<<"new room assigned";
         // check challenges here if not finished previously
         //do nothing here otherwise
         //qDebug()<<currentChallenger->getNumOfChallenges();
         if(getChallengerExists()==false){
-            if(createChallengerID()<40){
-                createChallenger(createChallengerID());
-                qDebug()<<"Test 2 here changing value";
-                 bool n = true;
-                 setGameStat(n);
-                 createChallenger(createChallengerID());
-            }
+
+                if(createChallengerID()<40 ){
+                    if(ChallengerNeverExisted(createChallengerID())==true){
+                       createChallenger(createChallengerID());
+                       qDebug()<<"Test 2 here changing value";
+                       bool n = true;
+                       setGameStat(n);
+                       createChallenger(createChallengerID());
+                    }
+                    else{
+                       bool n = false;
+                       setGameStat(n);
+                    }
+                }
         }
         else{
            if(currentChallenger->getNumOfChallenges()>0){
@@ -310,11 +340,17 @@ void ZorkUL::go(string direction){
                setGameStat(n);
            }
             else{
-                // ~currentChallenger();
-                qDebug()<<"Test 2 here changing value";
-                 bool n = true;
-                 setGameStat(n);
-                 createChallenger(createChallengerID());
+                 if(ChallengerNeverExisted(createChallengerID())==true){
+                    qDebug()<<"Test 2 here changing value";
+                    bool n = true;
+                    setGameStat(n);
+                    createChallenger(createChallengerID());
+                 }
+                 else{
+                    bool n = false;
+                    setGameStat(n);
+                 }
+
             }
         }
    }
@@ -326,6 +362,7 @@ int ZorkUL::idRequest(){
 int ZorkUL::createChallengerID(){
 
     string tmp = currentRoom->shortDescription();
+    qDebug()<<this->genericStringsToQString(tmp);
     if(tmp.compare("a")==0){
        return 11;
     }

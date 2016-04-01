@@ -8,183 +8,18 @@
 using namespace std;
 
 
-Character::Character(int id){
-   setCharacter(id);
-   challPlayed = false;
-}
+
 Character::Character(){
 
 }
-void Character::challengePlayed(bool n){
-    challPlayed = n;
-}
-bool Character::challengePlayed(){
-    return challPlayed;
-}
-void Character::setChallengerID(int id){
-          challengerID = id;
-}
-int Character::getChallengerID(){
-    return challengerID;
-}
+
 Character::~Character(void){
-}
-void Character::setCharacter(int id){
-    switch (id) {
-        // create main Character
-        /*  TODO
-         * set its description
-         * set lives
-         *
-        */
-        case 1:{
-        setCharacter("Roger Doger");
-        setGender("Male");
-        setLive(5);
-        setNumOfChallenges(0);
-        //addItems(new Item(info, 1, "INFORMATION"));
-        }
-        break;
-        // create Character in Room AI
-        case 2:
-         setCharacter("Quark");
-         setGender("Hermothermalprodite");
-         setNumOfChallenges(2);
-         setChallenge(2);
-        break;
-        // create Character in Room i
-        case 3:
-            setCharacter("Dark_One");
-            setGender("Female");
-            setNumOfChallenges(1);
-            setChallenge(3);
-            addItems(new Item("FN21020", 1, "INFORMATION"));
 
-        break;
-        // create character in room h
-        case 4:
-            setCharacter("Cedric-Junel-Valencia");
-            setGender("Male");
-            setNumOfChallenges(1);
-            setChallenge(4);
-            setItemCheck("Onion");
-        break;
-        // create Character in Room g
-        case 5:
-            setCharacter("Sphinx");
-            setGender("Take your pick");
-            setNumOfChallenges(1);
-            setChallenge(5);
-            setItemCheck("Nothing");
-        break;
-        // create Character in Room f
-        case 6:
-            setCharacter("Lafod");
-            setGender("Male");
-            setNumOfChallenges(1);
-            setChallenge(6);
-            setItemCheck("Candle");
-        break;
-        // create Character in Room e
-        case 7:
-            setCharacter("Reltih");
-            setGender("Female");
-            setNumOfChallenges(1);
-            setChallenge(7);
-            setItemCheck("Bottle");
-        break;
-        // create Character in Room d
-        case 8:
-            setCharacter("Anilst");
-            setGender("Etheral-Stub");
-            setNumOfChallenges(2);
-            setChallenge(8);
-            setItemCheck("MushroomClock");
-        break;
-        // create Character in Room c
-        case 9:
-            setCharacter("Sujes");
-            setGender("Solo-Unisteral");
-            setNumOfChallenges(1);
-            setChallenge(9);
-            setItemCheck("Foot");
-        break;
-        // create Character in Room b
-        case 10:
-           setCharacter("Tanas");
-           setGender("Male");
-           setNumOfChallenges(1);
-           setChallenge(10);
-           setItemCheck("Edible Seaweed");
-        break;
-        // create Character in Room acompare
-        case 11:
-           setCharacter("Galf");
-           setGender("Male");
-           setNumOfChallenges(1);
-           addItems(new Item("-3,+5,-2,-10,+5,+6",2,"INFORMATION"));
-        break;
-        // create Character in Room z not yet created
-        case 12:
-           setCharacter("Chris Sexton");
-           setGender("Male");
-           setNumOfChallenges(12);
-           setChallenge(12);
-        break;
-    default: break;
-    }
-
-}
-
-
-void Character::setItemCheck(string item){
-    this->itemChecker= item;
-}
-//just return the Characters long description
-string Character::longDescription(){
-
-  stringstream character;
-  character << "<font color='yellow'>Name: "<< description<<"</font><br/>";
-  if(description.compare("Roger Doger")==0){
-  character << "<font color='green'>Role: Captain</font><br/>";
-  character << "<font color='green'>Gender: "<< getGender()<<"</font><br/>" ;
-  character << "<font color='green'>Lives left: "<< getLive()<<"</font><br/>";
-  character << "<font color='green'>Challenges completed: "<<getNumOfChallenges()<<"</font><br/>" ;
-  }
-  else{
-      character << "<font color='green'>Role: Challenger</font><br/>";
-      character << "<font color='green'>Challenges:"<< getNumOfChallenges()<<"</font>";
-      character << "<br/><font color='red'><b>Click on Challenges<br/>for list of Challenges</b></font>";
-  }
-  return character.str();
-}
-
-// return short description
-string Character::shortDescription(){
-      string ret = this->description;
-      return ret;
-}
-void Character::setCharacter(string name){
-   description = name;
-}
-void Character::setLive(int live){
-    lives = live;
-}
-int Character::getLive(){
-    return this->lives;
-}
-
-void Character::setNumOfChallenges(int challenges){
-    numOfChallenges = challenges;
-}
-
-int Character::getNumOfChallenges(){
-    return numOfChallenges;
 }
 
 void Character::setChallenge(int num){
       switch(num){
-          case 2: 
+          case 2:
             challengeDescriptor = 2;
           break;
           case 3:
@@ -222,6 +57,144 @@ void Character::setChallenge(int num){
 int Character::getChallenge(){
     return challengeDescriptor;
 }
+void Character::setCharacter(int id){
+    switch (id) {
+        // create main Character
+        /*  TODO
+         * set its description
+         * set lives
+         *
+        */
+        case 1:{
+        setCharacterName("Roger Doger");
+        setGender("Male");
+        setLive(5);
+        setNumOfChallenges(0);
+        //addItems(new Item(info, 1, "INFORMATION"));MainCharacter
+        }
+        break;
+        // create Character in Room AI
+        case 2:
+         setCharacterName("Quark");
+         setGender("Hermothermalprodite");
+         setNumOfChallenges(2);
+         setChallenge(2);
+        break;
+        // create Character in Room i
+        case 3:
+            setCharacterName("Dark_One");
+            setGender("Female");
+            setNumOfChallenges(1);
+            setChallenge(3);
+            addItems(new Item("FN21020", 1, "INFORMATION"));
+
+        break;
+        // create character in room h
+        case 4:
+            setCharacterName("Cedric-Junel-Valencia");
+            setGender("Male");
+            setNumOfChallenges(1);
+            setChallenge(4);
+            addItems(new Item("Onion"));
+        break;
+        // create Character in Room g
+        case 5:
+            setCharacterName("Sphinx");
+            setGender("Take your pick");
+            setNumOfChallenges(1);
+            setChallenge(5);
+            setItemCheck("Nothing");
+        break;
+        // create Character in Room f
+        case 6:
+            setCharacterName("Lafod");
+            setGender("Male");
+            setNumOfChallenges(1);
+            setChallenge(6);
+            addItems(new Item("Candle"));
+        break;
+        // create Character in Room e
+        case 7:
+            setCharacterName("Reltih");
+            setGender("Female");
+            setNumOfChallenges(1);
+            setChallenge(7);
+            addItems(new Item("Bottle"));
+        break;
+        // create Character in Room d
+        case 8:
+            setCharacterName("Anilst");
+            setGender("Etheral-Stub");
+            setNumOfChallenges(2);
+            setChallenge(8);
+            addItems(new Item("Mushroom"));
+        break;
+        // create Character in Room c
+        case 9:
+            setCharacterName("Sujes");
+            setGender("Solo-Unisteral");
+            setNumOfChallenges(1);
+            setChallenge(9);
+            addItems(new Item("Foot"));
+        break;
+        // create Character in Room b
+        case 10:
+           setCharacterName("Tanas");
+           setGender("Male");
+           setNumOfChallenges(1);
+           setChallenge(10);
+           addItems(new Item("Edible Seaweed"));
+        break;
+        // create Character in Room acompare
+        case 11:
+           setCharacterName("Galf");
+           setGender("Male");
+           setNumOfChallenges(1);
+           addItems(new Item("-3,+5,-2,-10,+5,+6",2,"INFORMATION"));
+        break;
+        // create Character in Room z not yet created
+        case 12:
+           setCharacterName("Chris Sexton");
+           setGender("Male");
+           setNumOfChallenges(12);
+           setChallenge(12);
+        break;
+    default: break;
+    }
+
+}
+
+
+//just return the Characters long description
+// return short description
+void Character::setNumOfChallenges(int challenges){
+    numOfChallenges = challenges;
+}
+
+int Character::getNumOfChallenges(){
+    return numOfChallenges;
+}
+void Character::setItemCheck(string item){
+    this->itemChecker= item;
+}
+
+string Character::getItemCheck(){
+
+    return this->itemChecker;
+}
+
+
+void Character::setCharacterName(string name){
+   description = name;
+}
+void Character::setLive(int live){
+    lives = live;
+}
+int Character::getLive(){
+    return this->lives;
+}
+
+
 void Character::setGender(string gender){
     this->gender = gender;
 }
@@ -232,11 +205,6 @@ void Character::addItems(Item *item){
     itemsInCharacter.push_back(*item);
 
 }
-/*
-Item* Character::useItems(Item* item){
-
-}
-*/
 string Character::getAllItems(){
     int len = itemsInCharacter.size();
     stringstream allItems;
@@ -246,4 +214,16 @@ string Character::getAllItems(){
         allItems << "\nItem Number: " << i << itemsInCharacter.at(i).getLongDescription();
     }
     return allItems.str();
+}
+
+
+
+//just return the Characters long description
+
+
+
+// return short description
+string Character::shortDescription(){
+      string ret = this->description;
+      return ret;
 }

@@ -1,11 +1,15 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+
 #include <QMainWindow>
 #include<string>
 #include "ZorkUL.h"
-#include<Characterdisplay.h>
+#include"Characterdisplay.h"
+
 namespace Ui {
-class MainWindow;
+
+  class MainWindow;
+
 }
 
 class MainWindow : public QMainWindow
@@ -14,6 +18,9 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    ~MainWindow();
+
+    QStringList getQStringList();
     void wellcome();
     void PlInfo();
     void ChalInfo();
@@ -27,7 +34,7 @@ public:
     const QString *safe;
     void destroyWindow();
 
-    ~MainWindow();
+
     ZorkUL *game;
     CharacterDisplay *currentPlayer;
     CharacterDisplay *currentChallenger;
@@ -60,7 +67,8 @@ private slots:
 
     void on_showNewCharacter_clicked();
 
-private:
+private :
+
     Ui::MainWindow *ui;
     void setNewChallenger();
 };

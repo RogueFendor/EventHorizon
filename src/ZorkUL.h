@@ -8,13 +8,14 @@
 #include <iostream>
 #include <string>
 #include<Question.h>
-#include<ZorkULManager.h>
+#include<MainCharacter.h>
+#include<Challenger.h>
 
 using namespace std;
 
-class ZorkUL : public ZorkULManager  {
+class ZorkUL {
+
 private:
-	Room *currentRoom;
 
     Question* currentQuestion;
     bool gameStat;
@@ -29,8 +30,11 @@ private:
 
 public:
 	ZorkUL();
-    Character* currentPlayer;
-    Character* currentChallenger =NULL;
+    Room *currentRoom;
+    void setChallengerNeverExisted();
+    bool ChallengerNeverExisted(int challId);
+    MainCharacter *currentPlayer;
+    Challenger *currentChallenger =NULL;
     bool getChallengerExists();
     void setChallengerExists(bool n);
     bool getGameStat();
@@ -56,6 +60,6 @@ public:
     void go(string direction);
     string available_rooms [10];
     map<int, Room*> tmpMap;
+    vector<int> compMap;
 };
-
 #endif /*ZORKUL_H_*/

@@ -17,6 +17,7 @@ private:
 
 
 public:
+    string populateComboBox();
     int numberOfItems();
 	Room(string description);
     ~Room();

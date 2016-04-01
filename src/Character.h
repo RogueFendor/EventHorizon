@@ -11,48 +11,35 @@ using namespace std;
 
 class Character {
 private:
-     string description;
-     vector <Item> itemsInCharacter;
-     string gender;
-     string itemChecker;
-     int challengeDescriptor;
-     void setChallenge(int num);
-     int challengerID;
      int lives;
      int numOfChallenges;
-     bool challPlayed = false;
-     void setCharacter(string name);
-     void setGender(string gender);
-     void setItemCheck(string item);
+     int challengeDescriptor;
+     string gender;
+     string itemChecker;
+     void setChallenge(int num);
 
-     string getGender();
+     void setCharacterName(string name);
+     void setGender(string gender);
+
 
 public:
+     string description;
+     vector <Item> itemsInCharacter;
+    virtual string longDescription()=0;
     Character();
     ~Character();
     Character(int id);
-    bool challengePlayed();
-    void challengePlayed(bool n);
+    void setLive(int live);
+    int getChallenge();
+    void setCharacter(int i);
+    int getLive();
+    string getGender();
     int getNumOfChallenges();
     void setNumOfChallenges(int challenges);
     void addItems(Item *item);
-    void setLive(int live);
-    int getLive();
-
-    void setChallengerID(int id);
-    int getChallengerID();
-
-    void setCharacter(int id);
-
-    int getChallenge();
-
+    void setItemCheck(string item);
     string getItemCheck();
     string shortDescription();
-    string longDescription();
-
-    void createMainCharacter(Item *i);
     string getAllItems();
-    Item* useItems(Item* item);
-
 };
 #endif /*CHARACTER_H_*/
