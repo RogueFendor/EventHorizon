@@ -67,6 +67,12 @@ private slots:
 
     void on_showNewCharacter_clicked();
 
+    void on_itemBox_currentIndexChanged(int index);
+
+    void on_CompareItem_clicked();
+
+    void on_teleporter_clicked();
+
 private :
 
     Ui::MainWindow *ui;

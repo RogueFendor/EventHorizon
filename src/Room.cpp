@@ -5,10 +5,10 @@ Room::Room(string description) {
 	this->description = description;
 }
 
-/*
+/*Room
     This method set the exits in each Room
     assciative array 4 index keys values are pointers to rooms
-
+Room
 */
 
 void Room::setExits(Room *north, Room *east, Room *south, Room *west) {
@@ -110,7 +110,9 @@ string Room::displayItem() {
 }
 
 // return the number of current items in the item vector
-
+Item Room::getConcreteItem(int i){
+    return itemsInRoom[i];
+}
 string Room::populateComboBox(){
 
     string messageString = "Available Items:";
@@ -118,7 +120,7 @@ string Room::populateComboBox(){
 
     int sizeItems = (itemsInRoom.size());
     if (itemsInRoom.size() < 1) {
-        messageString = this->shortDescription();
+        messageString = "No Available Items";
         }
     else if (itemsInRoom.size() > 0) {
        int x = 0;

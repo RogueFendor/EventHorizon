@@ -23,6 +23,7 @@ private:
 
 
 public:
+     Item getItemFromChallenger();
      string description;
      vector <Item> itemsInCharacter;
     virtual string longDescription()=0;

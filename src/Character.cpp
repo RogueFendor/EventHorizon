@@ -103,7 +103,7 @@ void Character::setCharacter(int id){
             setGender("Take your pick");
             setNumOfChallenges(1);
             setChallenge(5);
-            setItemCheck("Nothing");
+            addItems(new Item("Nothing"));
         break;
         // create Character in Room f
         case 6:
@@ -127,7 +127,7 @@ void Character::setCharacter(int id){
             setGender("Etheral-Stub");
             setNumOfChallenges(2);
             setChallenge(8);
-            addItems(new Item("Mushroom"));
+            addItems(new Item("Clock"));
         break;
         // create Character in Room c
         case 9:
@@ -145,12 +145,11 @@ void Character::setCharacter(int id){
            setChallenge(10);
            addItems(new Item("Edible Seaweed"));
         break;
-        // create Character in Room acompare
+        // create Character in Room a compare
         case 11:
            setCharacterName("Galf");
            setGender("Male");
            setNumOfChallenges(1);
-           addItems(new Item("-3,+5,-2,-10,+5,+6",2,"INFORMATION"));
         break;
         // create Character in Room z not yet created
         case 12:
@@ -204,6 +203,10 @@ string Character::getGender(){
 void Character::addItems(Item *item){
     itemsInCharacter.push_back(*item);
 
+}
+Item Character::getItemFromChallenger(){
+
+    return itemsInCharacter[0];
 }
 string Character::getAllItems(){
     int len = itemsInCharacter.size();

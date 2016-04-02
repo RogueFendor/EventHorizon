@@ -1,5 +1,6 @@
 #include "Item.h"
 #include<sstream>
+#include<QDebug>
 
 Item::Item(){
 
@@ -14,18 +15,18 @@ bool Item::operator==(const Item& d)
 
 
     if(description.compare(d.description)!=0){
-        cout<<"Iam in here\n FASLE";
-        cout<<"\ndescription LHS "<<description<<" ";
-        cout<<"\ndescription RHS "<<d.description<<" ";
-        cout<<"\n";
+        qDebug()<<"Iam in here\n FASLE";
+        qDebug()<<"\ndescription LHS";
+        qDebug()<<"\ndescription RHS ";
+        qDebug()<<"\n";
         return false;
     }
     else{
-        cout<<"Iam in here\n TRUE";
-        cout<<"\ndescription LHS "<<description<<" ";
-        cout<<"\ndescription RHS "<<d.description<<" ";
-        cout<<"\n";
-        return false;
+        qDebug()<<"Iam in here\n TRUE";
+        qDebug()<<"\ndescription LHS ";
+        qDebug()<<"\ndescription RHS ";
+        qDebug()<<"\n";
+        return true;
     }
  }
 Item::Item (string inDescription, int inWeightGrams, float inValue, int weapon) {

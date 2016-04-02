@@ -89,7 +89,6 @@ void MainWindow::setNewChallenger(){
         ui->buttonChall->setText("NewChallenge");
         ui->buttonChall->setStyleSheet("color: rgb(79, 193, 185);");
         qApp->processEvents();
-        displayMessage();
     }
 }
 void MainWindow::on_buttonChall_clicked()
@@ -157,9 +156,14 @@ void MainWindow::renderQuestion(){
        }
        ui->itemBox->setVisible(false);
        ui->textArea1->setVisible(true);
+       ui->CompareItem->setEnabled(false);
+       ui->CompareItem->setVisible(false);
    }
    else{
        ui->itemBox->setVisible(true);
+       ui->CompareItem->setStyleSheet("color: rgb(79, 193, 185);");
+       ui->CompareItem->setEnabled(false);
+       ui->CompareItem->setVisible(true);
        ui->textArea1->setVisible(false);
    }
 
@@ -186,8 +190,6 @@ void MainWindow::setTextAreas(){
 void MainWindow::on_buttonEast_clicked()
 {
      game->go("east");
-     qDebug()<<"E1"<<game->getGameStat();
-     qDebug()<<"E1"<<game->idRequest();
     if(game->createChallengerID()<40){
       setNewChallenger();
     }
@@ -226,8 +228,7 @@ void MainWindow::on_showNewCharacter_clicked()
 void  MainWindow::verifyAnswer(bool){
 
   if(question->verifyAnswer(MainWindow::sender()->objectName())==true){
-       question->setCounter(question->getCounter()+1);
-       game->currentPlayer->setNumOfChallenges(game->currentPlayer->getNumOfChallenges()+1);
+       question->setCounter(question->getCounter()+1);  
       if(question->getNumOfQuestions() > question->getCounter()){
           game->currentChallenger->setNumOfChallenges(game->currentChallenger->getNumOfChallenges()-1);
           destroyWindow();
@@ -237,10 +238,23 @@ void  MainWindow::verifyAnswer(bool){
       else{
            game->setGameStat(true);
            destroyWindow();
-           qApp->processEvents();
            delete currentChallenger;
            delete game->currentChallenger;
            game->setChallengerExists(false);
+           game->currentPlayer->setNumOfChallenges(game->currentPlayer->getNumOfChallenges()+1);
+           QString n =game->playerInfo();
+           currentPlayer->setGreeting(n);
+            game->setUnlockA();
+           if(game->getUnlockA()==9){
+             game->opeRoomA();
+             ui->teleporter->setStyleSheet("color: rgb(79, 193, 185);");
+             ui->teleporter->setVisible(true);
+           }
+           qDebug()<<"debug unlockCounter "<<game->getUnlockA();
+
+
+           qApp->processEvents();
+
       }
   }
   else{
@@ -286,3 +300,74 @@ QStringList MainWindow::getQStringList(){
 
 }
 
+
+void MainWindow::on_itemBox_currentIndexChanged(int index)
+{
+    if(ui->itemBox->currentIndex()>0){
+      qDebug()<<ui->itemBox->currentIndex();
+      ui->CompareItem->setVisible(true);
+      ui->itemBox->currentIndex();
+      ui->CompareItem->setEnabled(true);
+    }
+    else{
+        ui->CompareItem->setEnabled(false);
+    }
+}
+
+void MainWindow::on_CompareItem_clicked()
+{
+    if(game->currentRoom->getConcreteItem(ui->itemBox->currentIndex()-1)==game->currentChallenger->getItemFromChallenger()){
+         question->setCounter(question->getCounter()+1);
+         game->currentPlayer->setNumOfChallenges(game->currentPlayer->getNumOfChallenges()+1);
+         destroyWindow();
+         delete currentChallenger;
+         delete game->currentChallenger;
+         game->setChallengerExists(false);
+
+         ui->itemBox->setVisible(false);
+         ui->CompareItem->setVisible(false);
+         QString n =game->playerInfo();
+         currentPlayer->setGreeting(n);
+
+         game->setUnlockA();
+          qDebug()<<"debug unlockCounter "<<game->getUnlockA();
+         if(game->getUnlockA()==9){
+           game->opeRoomA();
+           ui->teleporter->setStyleSheet("color: rgb(79, 193, 185);");
+           ui->teleporter->setVisible(true);
+        }
+          qApp->processEvents();
+    }
+    else{
+        game->currentPlayer->setLive(game->currentPlayer->getLive()-1);
+         QString n =game->playerInfo();
+         currentPlayer->setGreeting(n);
+           ui->liveBar->setValue(ui->liveBar->value()-20);
+           if(ui->liveBar->value()<50)
+               ui->liveBar->setStyleSheet("QProgressBar::chunk {background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #FF0350,stop: 0.4999 #FF0020,stop: 0.5 #FF0019,stop: 1 #FF0000 );border-bottom-right-radius: 5px;border-bottom-left-radius: 5px;border: .px solid black;}");
+           qApp->processEvents();
+           if(game->currentPlayer->getLive()==0){
+               QMessageBox::information(
+                   this,
+                   tr("EventHorizon"),
+                   tr("Game Over You Lost Buddy!") );
+               exit(1);
+           }
+    }
+}
+
+void MainWindow::on_teleporter_clicked()
+{
+
+    delete currentChallenger;
+    delete game->currentChallenger;
+    game->setChallengerExists(false);
+
+    game->teleport();
+
+     if(game->createChallengerID()<40){
+        setNewChallenger();
+     }
+    setTextAreas();
+    ui->teleporter->setEnabled(false);
+}

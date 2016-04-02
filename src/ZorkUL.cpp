@@ -105,7 +105,7 @@ void ZorkUL::createRooms()
     la->addItem(new Item("Coffee Cup"));
     la->addItem(new Item("Calendar"));
     lb->addItem(new Item("Foot"));
-    lb->addItem(new Item("Magazine"));
+    lb->addItem(new Item("Nothing"));
     lb->addItem(new Item("Fork"));
     lb->addItem(new Item("Football"));
     lc->addItem(new Item("Candle"));
@@ -130,11 +130,11 @@ void ZorkUL::createRooms()
 
     //             (N, E, S, W)
     a->setExits(f, b, d, c);
-    b->setExits(g, NULL, e, a);
-    c->setExits(h, a, i, NULL);
-    d->setExits(a, e, ai, i);
+    b->setExits(g, NULL, e, NULL);
+    c->setExits(h, NULL, i, NULL);
+    d->setExits(NULL, e, ai, i);
     e->setExits(b, NULL, NULL, d);
-    f->setExits(NULL, g, a, h);
+    f->setExits(NULL, g, NULL, h);
     g->setExits(NULL, NULL, b, f);
     h->setExits(NULL, f, c, NULL);
     i->setExits(c, d, NULL, NULL);
@@ -176,13 +176,62 @@ void ZorkUL::createRooms()
     //is it neccessary to add rooms la to lf here alos?
 
     currentRoom = start; // was k
+
+    /**
+
+    a->setExits(f, b, d, c);
+    b->setExits(g, NULL, e, a);
+    c->setExits(h, a, i, NULL);
+    d->setExits(a, e, ai, i);
+    e->setExits(b, NULL, NULL, d);
+    f->setExits(NULL, g, a, h);
+    g->setExits(NULL, NULL, b, f);
+    h->setExits(NULL, f, c, NULL);
+    i->setExits(c, d, NULL, NULL);
+    ai->setExits(d, NULL, start, NULL);
+    start->setExits(ai, chr_b, lc, chr_a);
+    bridge->setExits(NULL, NULL, f, NULL);
+    chr_a->setExits(NULL, start, dcr_a, NULL);
+    chr_b->setExits(NULL, NULL, dcr_b, start);
+    dcr_a->setExits(chr_a, NULL, NULL, e_room_a);
+    dcr_b->setExits(chr_b, e_room_b, NULL, NULL);
+    e_room_a->setExits(NULL, dcr_a, NULL, NULL);
+    e_room_b->setExits(NULL, NULL, NULL, dcr_b);
+    la->setExits(lb, ld, NULL, NULL);
+    lb->setExits(lc, le, la, NULL);
+    lc->setExits(start, lf, lb, NULL);
+    ld->setExits(le, NULL, NULL, la);
+    le->setExits(lf, NULL, lb, ld);
+    lf->setExits(NULL, NULL, le, lc);
+
+
+    */
+
+
+
+
 }
 
 /*
  *  Main play routine.  Loops until end of play.
  */
 // Wellcome :-)
+int ZorkUL::getUnlockA(){
 
+    return unlockACounter;
+}
+
+void ZorkUL::setUnlockA(){
+
+    unlockACounter++;
+}
+void ZorkUL::opeRoomA(){
+
+    tmpMap.at(2)->setExits(tmpMap.at(7), NULL, tmpMap.at(5), tmpMap.at(1));
+    tmpMap.at(3)->setExits(tmpMap.at(8), tmpMap.at(1), tmpMap.at(9), NULL);
+    tmpMap.at(4)->setExits(tmpMap.at(1), tmpMap.at(5), tmpMap.at(10), tmpMap.at(9));
+    tmpMap.at(6)->setExits(NULL, tmpMap.at(7), tmpMap.at(1), tmpMap.at(8));
+}
 void ZorkUL::setChallengerNeverExisted(){
     compMap.push_back(currentChallenger->getChallengerID());
 }
@@ -190,7 +239,6 @@ void ZorkUL::setChallengerNeverExisted(){
 bool ZorkUL::ChallengerNeverExisted(int challId){
     if(find(compMap.begin(), compMap.end(), challId ) != compMap.end()){
         // it found challenger name in list
-        qDebug()<<challId<<"FALSE";
         return false;
     }
     else{
@@ -244,49 +292,12 @@ QString ZorkUL:: returnLive(){
 
 }
 
-void ZorkUL::teleport(){
-    bool runGen =true;
-    int number;
-    while(runGen){
-      number = generateRandomNumber();
-      if(tmpMap.find(number)== tmpMap.end()){
-      }
-      else{
-          map<int, Room*>::iterator telPortTo = tmpMap.find(number);
-          Room *tmpRoom = telPortTo->second;
-          if(tmpRoom->shortDescription().compare(currentRoom->shortDescription())==0){
-             continue;
-          }
-          else{
-            //~currentRoom();
-            currentRoom = tmpRoom;
-            if(currentRoom->shortDescription().compare("j")==0){
-                roomInfo();
-            }
-            else{
-                // chech here for challenge status of main character
-                // check challenges here if not finished previously
-                //do nothing here otherwise
+void ZorkUL::teleport(){   
+        currentRoom = tmpMap.at(12);
+        createChallenger(createChallengerID());
+        bool n = true;
+        setGameStat(n);
 
-                if(currentChallenger->getNumOfChallenges()>0){
-                    bool n =false;
-                    qDebug()<<"Changing Now in getNumOfChallenges";
-                    setGameStat(n);
-                }
-                else
-                {
-              //      ~currentChallenger();
-                    bool n = true;
-                    setGameStat(n);
-                    createChallenger(createChallengerID());
-                    roomInfo();
-                    challengerInfo();
-                }
-            }
-            runGen = false;
-          }
-      }
-    }
 }
 QString ZorkUL::printHelp() {
     QString help = "????????? We are fucked too!";
@@ -299,8 +310,9 @@ int ZorkUL::generateRandomNumber(){
     randomNumber=(rand() % max) +1;
     return randomNumber;
 }
+
+
 void ZorkUL::go(string direction){
-    qDebug()<<"in go function";
 	Room* nextRoom = currentRoom->nextRoom(direction);
     if (nextRoom == NULL){
        // we see later what to do here
@@ -311,16 +323,14 @@ void ZorkUL::go(string direction){
 	{
         //~currentRoom();
 		currentRoom = nextRoom;
-        qDebug()<<"new room assigned";
         // check challenges here if not finished previously
         //do nothing here otherwise
         //qDebug()<<currentChallenger->getNumOfChallenges();
         if(getChallengerExists()==false){
-
                 if(createChallengerID()<40 ){
                     if(ChallengerNeverExisted(createChallengerID())==true){
                        createChallenger(createChallengerID());
-                       qDebug()<<"Test 2 here changing value";
+
                        bool n = true;
                        setGameStat(n);
                        createChallenger(createChallengerID());

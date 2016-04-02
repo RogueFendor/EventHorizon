@@ -29,8 +29,12 @@ private:
     int generateRandomNumber();
 
 public:
+    int unlockACounter =0;
 	ZorkUL();
     Room *currentRoom;
+    void opeRoomA();
+    void setUnlockA();
+    int getUnlockA();
     void setChallengerNeverExisted();
     bool ChallengerNeverExisted(int challId);
     MainCharacter *currentPlayer;

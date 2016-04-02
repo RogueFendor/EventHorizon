@@ -23,10 +23,9 @@ public:
     ~Room();
     Room *nextRoom(string direction);
 	void setExits(Room *north, Room *east, Room *south, Room *west);
-
     string shortDescription();
 	string longDescription();
-
+    Item getConcreteItem(int i);
     void addItem(Item *inItem);
     string displayItem();
     string getItemDetails(int id);

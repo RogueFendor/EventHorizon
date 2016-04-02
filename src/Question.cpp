@@ -97,8 +97,8 @@ void Question::setUp(int id){
         case 3:{
 
           a="Which two countries currently account for more than a third of Earths population?,China and Russia,India and China, India and Pakistan,China and Brazil,1";
-          b="Go-Gurt, yogurt in a tube, is manufactured by what brand?,Dannon,Breyers,Yoplait,TCBY,2";
-          c="Acadia National Park is located in what U.S. state?, Maine, Michigan,Arkansas,Louisiana";
+          b="Go-Gurt yogurt in a tube is manufactured by what brand?,Dannon,Breyers,Yoplait,TCBY,2";
+          c="Acadia National Park is located in what U.S. state?, Maine, Michigan,Arkansas,Louisiana,0";
           d="The National Hockey Leagues trophy for leagues leading goal scorer is named for what player?,Wayne Gretzky,Maurice Richard,Gordie Howe,Mario Lemieux,1";
           numOfQuestion=4;
 
@@ -107,7 +107,7 @@ void Question::setUp(int id){
         }
         break;
         case 4:{
-          a="Take of my skin and i wont cry but you will";
+          a="Go to Room LF and Bring me this:\nTake of my skin and i wont cry but you will";
           numOfQuestion=1;
         }
         break;
@@ -117,32 +117,32 @@ void Question::setUp(int id){
         }
           break;
         case 6:{
-           a="I am tall when I am young but short when I am old";
+           a="Go to Room LC and Bring me this:\n I am tall when I am young but short when I am old";
            numOfQuestion=1;
         }
           break;
         case 7:{
-          a="I have a a neck but my head is nor there";
+          a="Go to Room LD and Bring me this:\nI have a a neck but my head is nor there";
           numOfQuestion=1;
         }
           break;
         case 8:{
-           a="Go to Room LB and Bring me this:\nIf you look at My face you will never see the number 13";
+           a="Go to Engine Room A  and Bring me this:\nIf you look at My face you will never see the number 13";
            numOfQuestion=1;
         }
           break;
         case 9:{
-            a ="A snail you may ?";
+            a ="Go to Room LD and Bring me this:\nA porn Collection?";
             numOfQuestion=1;
         }break;
         case 10:{
-            a= "What is Sushi wrapped in?";
+            a= "Go to Room LE and Bring me this:\nWhat is Sushi wrapped in?";
             numOfQuestion=1;
-
         }
           break;
-        case 11:{
-           a="You unlocked room a  now decrypt the the message and\nyou will have the password to reset the teleporter";
+
+      case 11:{
+           a="You unlocked room a.. Congratulations..\nNow reset the teleporter by pressing the teleporter Button\n And teleport to the Bridge to meet Chris";
            numOfQuestion=1;
         }
           break;
