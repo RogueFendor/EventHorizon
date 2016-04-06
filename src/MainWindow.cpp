@@ -171,14 +171,15 @@ void MainWindow::renderQuestion(){
 void MainWindow::on_buttonNorth_clicked()
 {
     game->go("north");
-     qDebug()<<"N1"<<game->getGameStat();
-
+    ui->widget_2->setStyleSheet(game->currentRoom->getImage());
+    if(game->currentRoom->shortDescription()=="a"){
+        ui->teleporter->setStyleSheet("color: rgb(79, 193, 185);");
+        ui->teleporter->setVisible(true);
+    }
      if(game->createChallengerID()<40){
        setNewChallenger();
      }
-     qDebug()<<"N2"<<game->getGameStat();
     setTextAreas();
-
 }
 void MainWindow::setTextAreas(){
     ui->textArea1->setText(game->returnRoom());
@@ -190,6 +191,11 @@ void MainWindow::setTextAreas(){
 void MainWindow::on_buttonEast_clicked()
 {
      game->go("east");
+     ui->widget_2->setStyleSheet(game->currentRoom->getImage());
+     if(game->currentRoom->shortDescription()=="a"){
+         ui->teleporter->setStyleSheet("color: rgb(79, 193, 185);");
+         ui->teleporter->setVisible(true);
+     }
     if(game->createChallengerID()<40){
       setNewChallenger();
     }
@@ -200,6 +206,11 @@ void MainWindow::on_buttonEast_clicked()
 void MainWindow::on_buttonSouth_clicked()
 {
     game->go("south");
+     ui->widget_2->setStyleSheet(game->currentRoom->getImage());
+     if(game->currentRoom->shortDescription()=="a"){
+         ui->teleporter->setStyleSheet("color: rgb(79, 193, 185);");
+         ui->teleporter->setVisible(true);
+     }
      qDebug()<<"S1"<<game->getGameStat();
      if(game->createChallengerID()<40){
         setNewChallenger();
@@ -211,6 +222,11 @@ void MainWindow::on_buttonSouth_clicked()
 void MainWindow::on_buttonWest_clicked()
 {
     game->go("west");
+     ui->widget_2->setStyleSheet(game->currentRoom->getImage());
+     if(game->currentRoom->shortDescription()=="a"){
+         ui->teleporter->setStyleSheet("color: rgb(79, 193, 185);");
+         ui->teleporter->setVisible(true);
+     }
      qDebug()<<"W1"<<game->getGameStat();
      if(game->createChallengerID()<40){
        setNewChallenger();
@@ -247,12 +263,11 @@ void  MainWindow::verifyAnswer(bool){
             game->setUnlockA();
            if(game->getUnlockA()==9){
              game->opeRoomA();
-             ui->teleporter->setStyleSheet("color: rgb(79, 193, 185);");
-             ui->teleporter->setVisible(true);
-           }
-           qDebug()<<"debug unlockCounter "<<game->getUnlockA();
-
-
+             QMessageBox::information(
+                 this,
+                 tr("EventHorizon"),
+                 tr("Congrats You unlocked Room A go to Room A") );
+             }
            qApp->processEvents();
 
       }
@@ -333,8 +348,11 @@ void MainWindow::on_CompareItem_clicked()
           qDebug()<<"debug unlockCounter "<<game->getUnlockA();
          if(game->getUnlockA()==9){
            game->opeRoomA();
-           ui->teleporter->setStyleSheet("color: rgb(79, 193, 185);");
-           ui->teleporter->setVisible(true);
+           QMessageBox::information(
+               this,
+               tr("EventHorizon"),
+               tr("Congrats You unlocked Room A go to Room A") );
+
         }
           qApp->processEvents();
     }
@@ -362,9 +380,8 @@ void MainWindow::on_teleporter_clicked()
     delete currentChallenger;
     delete game->currentChallenger;
     game->setChallengerExists(false);
-
     game->teleport();
-
+    ui->widget_2->setStyleSheet(game->currentRoom->getImage());
      if(game->createChallengerID()<40){
         setNewChallenger();
      }

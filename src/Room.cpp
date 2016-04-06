@@ -18,7 +18,7 @@ void Room::setExits(Room *north, Room *east, Room *south, Room *west) {
 		exits["east"] = east;
 	if (south != NULL)
 		exits["south"] = south;
-	if (west != NULL)
+    if (west != NULL)
 		exits["west"] = west;
 }
 
@@ -56,7 +56,7 @@ Room* Room::nextRoom(string direction) {
 	map<string, Room*>::iterator next = exits.find(direction); //returns an iterator for the "pair"
 	if (next == exits.end())
         return NULL;
-    // if exits.end() was returned, there's no room in that direction.
+    // if exits.end() was returned, there's no room in that direcimageNametion.imageName
     return next->second;
     // If there is a room, remove the "second" (Room*)
     // part of the "pair" (<string, Room*>) and return it.
@@ -68,7 +68,7 @@ new item object is instantiated and pushed into the Item  vector
 */
 
 void Room::addItem(Item *inItem) {
-    //cout <<endl;
+    //cout <<endl;imageName
     //cout << "Just added" + inItem->getLongDescription();
     itemsInRoom.push_back(*inItem);
 }
@@ -108,7 +108,14 @@ string Room::displayItem() {
         }
     return messageString+=itemString + "<br>";
 }
+void Room::setImage(QString n){
 
+    image = n;
+}
+QString Room::getImage(){
+
+    return image;
+}
 // return the number of current items in the item vector
 Item Room::getConcreteItem(int i){
     return itemsInRoom[i];
@@ -156,4 +163,3 @@ int Room::isItemInRoom(string inString)
         }
     return -1;
 }
-

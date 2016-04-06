@@ -69,29 +69,54 @@ void ZorkUL::createRooms()
          *la, *lb, *lc, *ld, *le, *lf;
 
     a = new Room("a");
+    a->setImage("border-image: url(:/new/largeImg/img/SSPa.png);");
     b = new Room("b");
+    b->setImage("border-image: url(:/new/largeImg/img/SSPb.png);");
     c = new Room("c");
+    c->setImage("border-image: url(:/new/largeImg/img/SSPc.png);");
     d = new Room("d");
+     d->setImage("border-image: url(:/new/largeImg/img/SSPd.png);");
     e = new Room("e");
+     e->setImage("border-image: url(:/new/largeImg/img/SSPe.png);");
     f = new Room("f");
+    f->setImage("border-image: url(:/new/largeImg/img/SSPf.png);");
     g = new Room("g");
+     g->setImage("border-image: url(:/new/largeImg/img/SSPg.png);");
     h = new Room("h");
+     h->setImage("border-image: url(:/new/largeImg/img/SSPh.png);");
     i = new Room("i");
+    i->setImage("border-image: url(:/new/largeImg/img/SSPi.png);");
     ai = new Room("AI");//was room j
+     ai->setImage("border-image: url(:/new/largeImg/img/SSPai.png);");
     start = new Room("START"); //was room k
+     start->setImage("border-image: url(:/new/largeImg/img/SSPstart.png);");
     bridge = new Room("BRIDGE");
+     bridge->setImage("border-image: url(:/new/largeImg/img/SSPbridge.png);");
     chr_a = new Room("CHR-A");
+     chr_a->setImage("border-image: url(:/new/largeImg/img/SSPchra.png);");
     chr_b = new Room("CHR-B");
+     chr_b->setImage("border-image: url(:/new/largeImg/img/SSPchrb.png);");
     dcr_a = new Room("DCR-A");
+     dcr_a->setImage("border-image: url(:/new/largeImg/img/SSPdcra.png);");
     dcr_b = new Room("DCR-B");
+     dcr_b->setImage("border-image: url(:/new/largeImg/img/SSPdcrb.png);");
     e_room_a = new Room("E-ROOM-A");
+     e_room_a->setImage("border-image: url(:/new/largeImg/img/SSPerooma.png);");
     e_room_b = new Room("E-ROOM-B");
+    e_room_b->setImage("border-image: url(:/new/largeImg/img/SSPeroomb.png);");
+
     la = new Room("la");
+     la->setImage("border-image: url(:/new/largeImg/img/SSPla.png);");
     lb = new Room("lb");
+     lb->setImage("border-image: url(:/new/largeImg/img/SSPlb.png);");
     lc = new Room("lc");
+     lc->setImage("border-image: url(:/new/largeImg/img/SSPlc.png);");
     ld = new Room("ld");
+     ld->setImage("border-image: url(:/new/largeImg/img/SSPld.png);");
     le = new Room("le");
+     le->setImage("border-image: url(:/new/largeImg/img/SSPle.png);");
     lf = new Room("lf");
+     lf->setImage("border-image: url(:/new/largeImg/img/SSPlf.png);");
 
     a->addItem(new Item("Dog"));
     a->addItem(new Item("Cat"));
@@ -151,7 +176,7 @@ void ZorkUL::createRooms()
     lb->setExits(lc, le, la, NULL);
     lc->setExits(start, lf, lb, NULL);
     ld->setExits(le, NULL, NULL, la);
-    le->setExits(lf, NULL, lb, ld);
+    le->setExits(lf, NULL, ld, lb);
     lf->setExits(NULL, NULL, le, lc);
 
 

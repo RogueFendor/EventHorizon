@@ -33,8 +33,7 @@ public:
     const QString *danger;
     const QString *safe;
     void destroyWindow();
-
-
+    QString imageName();
     ZorkUL *game;
     CharacterDisplay *currentPlayer;
     CharacterDisplay *currentChallenger;

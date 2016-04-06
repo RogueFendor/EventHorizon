@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "Item.h"
+#include <QString>
 using namespace std;
 using std::vector;
 
@@ -15,13 +16,15 @@ private:
 	string exitString();
     vector <Item> itemsInRoom;
 
-
 public:
     string populateComboBox();
+    QString image;
     int numberOfItems();
 	Room(string description);
     ~Room();
     Room *nextRoom(string direction);
+    void setImage(QString n);
+    QString getImage();
 	void setExits(Room *north, Room *east, Room *south, Room *west);
     string shortDescription();
 	string longDescription();

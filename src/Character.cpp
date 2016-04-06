@@ -135,7 +135,7 @@ void Character::setCharacter(int id){
             setGender("Solo-Unisteral");
             setNumOfChallenges(1);
             setChallenge(9);
-            addItems(new Item("Foot"));
+            addItems(new Item("Laptop"));
         break;
         // create Character in Room b
         case 10:
