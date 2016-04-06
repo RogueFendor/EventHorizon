@@ -148,10 +148,10 @@ void Question::setUp(int id){
           break;
         case 12:{
            a="What does the code cout<<(0==0) print?,0,1, Compiler error: Lvalue required,0";
-           b="According to the ANSI C++ standard what does the getch() do?,Reads in a character,Checks the keyboard buffer,Nothing (getch() is not an ANSI C++ function,0)";
+           b="According to the ANSI C++ standard what does the getch() do?,Reads in a character,Checks the keyboard buffer,Nothing getch() is not an ANSI C++ function,0";
            c="If the program completes executing successfully what value should the function main() return?,0,1,void,A ham Sandwich,0";
            d="C is to C++ as 1 is to,What the heck?,2,10,1";
-           e="Which of the following sorts is quickest when sorting the following set: 1 2 3 5 4,Quick Sort,Bubble Sort,Merge Sort,1";
+           e="Which of the following sorts is quickest when sorting the following set: 1 2 3 5 4,Quick Sort,Bubble Sort,Merge Sort,0";
            numOfQuestion=5;
          }
         break;

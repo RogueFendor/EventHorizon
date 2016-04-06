@@ -267,6 +267,14 @@ void  MainWindow::verifyAnswer(bool){
                  this,
                  tr("EventHorizon"),
                  tr("Congrats You unlocked Room A go to Room A") );
+
+             }
+           if(game->currentRoom->shortDescription()=="BRIDGE"){
+             QMessageBox::information(
+                 this,
+                 tr("EventHorizon"),
+                 tr("You have saved this ship thank you very much for playing\nAuthors Benjamin Keil And David Hammill\n\nIf you enjoyed this game donate to this address:\n\n5984327546365fvguybgt8r5gbfffft45") );
+                 exit(1);
              }
            qApp->processEvents();
 
@@ -337,6 +345,7 @@ void MainWindow::on_CompareItem_clicked()
          destroyWindow();
          delete currentChallenger;
          delete game->currentChallenger;
+
          game->setChallengerExists(false);
 
          ui->itemBox->setVisible(false);
@@ -379,6 +388,7 @@ void MainWindow::on_teleporter_clicked()
 
     delete currentChallenger;
     delete game->currentChallenger;
+    destroyWindow();
     game->setChallengerExists(false);
     game->teleport();
     ui->widget_2->setStyleSheet(game->currentRoom->getImage());

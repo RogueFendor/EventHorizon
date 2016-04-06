@@ -117,10 +117,6 @@ void ZorkUL::createRooms()
      le->setImage("border-image: url(:/new/largeImg/img/SSPle.png);");
     lf = new Room("lf");
      lf->setImage("border-image: url(:/new/largeImg/img/SSPlf.png);");
-
-    a->addItem(new Item("Dog"));
-    a->addItem(new Item("Cat"));
-    a->addItem(new Item("Bat"));
     //a->addItem(new Item("x", 1,"Dog"));
     //a->addItem(new Item("y", 2,"Cat"));
     e_room_a->addItem(new Item("Mushroom"));
