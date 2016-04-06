@@ -43,8 +43,11 @@
     <layout class="QGridLayout" name="mapLayout">
      <item row="0" column="0">
       <widget class="QWidget" name="widget_2" native="true">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="styleSheet">
-        <string notr="true">border-image: url(:/new/largeImg/img/SSP.png);</string>
+        <string notr="true">border-image: url(:/new/largeImg/img/SSPstart.png);</string>
        </property>
       </widget>
      </item>
