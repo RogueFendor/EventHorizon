@@ -44,30 +44,6 @@
         <file>img/SSPle.png</file>
         <file>img/SSPlf.png</file>
         <file>img/SSPstart.png</file>
-        <file>../../../SSP/SSPa.png</file>
-        <file>../../../SSP/SSPai.png</file>
-        <file>../../../SSP/SSPb.png</file>
-        <file>../../../SSP/SSPbridge.png</file>
-        <file>../../../SSP/SSPc.png</file>
-        <file>../../../SSP/SSPchra.png</file>
-        <file>../../../SSP/SSPchrb.png</file>
-        <file>../../../SSP/SSPd.png</file>
-        <file>../../../SSP/SSPdcra.png</file>
-        <file>../../../SSP/SSPdcrb.png</file>
-        <file>../../../SSP/SSPe.png</file>
-        <file>../../../SSP/SSPerooma.png</file>
-        <file>../../../SSP/SSPeroomb.png</file>
-        <file>../../../SSP/SSPf.png</file>
-        <file>../../../SSP/SSPg.png</file>
-        <file>../../../SSP/SSPh.png</file>
-        <file>../../../SSP/SSPi.png</file>
-        <file>../../../SSP/SSPla.png</file>
-        <file>../../../SSP/SSPlb.png</file>
-        <file>../../../SSP/SSPlc.png</file>
-        <file>../../../SSP/SSPld.png</file>
-        <file>../../../SSP/SSPle.png</file>
-        <file>../../../SSP/SSPlf.png</file>
-        <file>../../../SSP/SSPstart.png</file>
     </qresource>
     <qresource prefix="/">
         <file>img/control.jpg</file>
